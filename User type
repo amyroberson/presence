@@ -1,0 +1,26 @@
+User type 
+	-firstName : String
+	-lastName : String
+	-company: String
+	-position: String
+	-email: String
+	-passWord: String
+	-image: UIimage
+	-imageURL: URL?
+	-attendingEvents: [Events] = []
+	-contacts : [User] = []
+	-requestSent: [request]- calculated Property?
+	-requestReceived: [request] - calculated Property?
+
+
+Event Type
+	-location: String
+	-time: Date
+	-attendents: [User]
+
+RequestType
+	sendingUser: User
+	receivingUser: User
+
+	.accept()--- adds users to each others contacts
+	.reject()--- deletes self from each users requests

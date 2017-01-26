@@ -14,7 +14,7 @@ class User : Equatable{
     let company: String
     let position: String
     let email: String
-    let passWord: String
+    let password: String
     
     init(firstName: String, lastName: String, company: String, position: String, email: String, passWord: String){
         self.firstName = firstName
@@ -22,7 +22,7 @@ class User : Equatable{
         self.company = company
         self.position = position
         self.email = email
-        self.passWord = passWord
+        self.password = passWord
     }
     
     convenience init?(dictionary: [String: Any]){
@@ -31,7 +31,7 @@ class User : Equatable{
         let company = dictionary["company"] as? String,
         let position = dictionary["position"] as? String,
         let email = dictionary["email"] as? String,
-            let passWord = dictionary["passWord"] as? String{
+            let passWord = dictionary["password"] as? String{
             self.init(firstName: first, lastName: last, company: company, position: position, email: email, passWord: passWord)
         } else {
             return nil
@@ -45,7 +45,7 @@ class User : Equatable{
             "company" : self.company,
             "positon" : self.position,
             "email" : self.email,
-            "passWord" : self.passWord]
+            "password" : self.password]
         return dictionary
     }
     

@@ -7,20 +7,27 @@ User type
 	-passWord: String *
 	-image: UIimage
 	-imageURL: URL?
-	-attendingEvents: [Events] = []
 	-contacts : [User] = []
-	-requestSent: [request]- calculated Property?
-	-requestReceived: [request] - calculated Property?
+
+
+
+
+
+	-attendingEvents: [Events] = [] not connected to the user //give me the events matching this user
+	-requestSent: [request]- not connected to the user //give me the requests matching this user
+	-requestReceived: [request] not connected to the user //give me the requests matching this user
+
 
 
 Event Type
+	-name: String
 	-location: String
 	-time: Date
 	-attendents: [User]
 
 RequestType
-	sendingUser: User
-	receivingUser: User
+	toUser: User
+	fromUser: User
 	isActive: Bool
 
 	.accept()--- adds users to each others contacts

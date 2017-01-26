@@ -7,3 +7,20 @@
 //
 
 import Foundation
+
+
+class Event {
+    var location: String
+    var time: Date
+    var attendents: [User]
+    
+    init(location: String, time: Date, attendents: [User]){
+        self.location = location
+        self.time = time
+        self.attendents = attendents
+    }
+    
+    //toDictionary
+    //init?
+    
+}

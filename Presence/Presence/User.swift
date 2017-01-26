@@ -16,11 +16,9 @@ class User : Equatable{
     let email: String
     let password: String
     let pictureIsPrivate: Bool
-    let incomingRequests : [Request]
-    let sentRequests: [Request]
-    //images?
     
-    init(firstName: String, lastName: String, company: String, position: String, email: String, passWord: String, pictureIsPrivate: Bool, incomingRequests: [Request] = [], sentRequests: [Request] = []){
+    
+    init(firstName: String, lastName: String, company: String, position: String, email: String, passWord: String, pictureIsPrivate: Bool){
         self.firstName = firstName
         self.lastName = lastName
         self.company = company
@@ -28,8 +26,6 @@ class User : Equatable{
         self.email = email
         self.password = passWord
         self.pictureIsPrivate = pictureIsPrivate
-        self.incomingRequests = incomingRequests
-        self.sentRequests = sentRequests
     }
     
     
@@ -43,9 +39,7 @@ class User : Equatable{
             let passWord = dictionary["password"] as? String,
             let pictureIsPrivate = dictionary["pictureIsPrivate"] as? Bool
             {
-                let sent = dictionary["sentRequests"] as? [Request] ?? []
-                let incoming = dictionary["incomingRequests"] as? [Request] ?? []
-                self.init(firstName: first, lastName: last, company: company, position: position, email: email, passWord: passWord, pictureIsPrivate: pictureIsPrivate, incomingRequests: incoming, sentRequests: sent)
+                self.init(firstName: first, lastName: last, company: company, position: position, email: email, passWord: passWord, pictureIsPrivate: pictureIsPrivate)
         } else {
             return nil
         }
@@ -60,15 +54,28 @@ class User : Equatable{
             "positon" : self.position,
             "email" : self.email,
             "password" : self.password,
-            "picureIsPrivate" : self.pictureIsPrivate
-            //"sentRequests" : self.sentRequests.map { ($0.toDictionary) }
+            "picureIsPrivate" : self.pictureIsPrivate,
         ]
         return dictionary
     }
     
+    func fetchContacts() -> [User]{
+        // send server self/
+        return []
+    }
+    
+    func fetchSentRequests() -> [Request]{
+        return []
+    }
+    
+    func fetchReceivedRequests() -> [Request]{
+        
+    }
+    
+    
     //expand once data structure is set!
     public static func == (_ lhs: User, _ rhs: User) -> Bool {
-        return lhs.email == rhs.email
+        return lhs.email == rhs.email && lhs.firstName == rhs.firstName
     }
     
 }

@@ -1,6 +1,6 @@
 EndPoints
 
-	1-- 
+	1-- .add_user.json
 	Registering A User
 	Post send  array with one user dictionary [String: Any] this [User Dictionary]
 		["firstName" : string,
@@ -9,14 +9,33 @@ EndPoints
 		"position" : string,
 		"email" : string,
 		"password" : string,
-		"contacts" : ["firstName" : string,
-						"email": string]
-						 ]
-	2--
-	git Events list of events [[string: Any]] = [[Event Dictionary]]
+		"pictureIsPrivate" : Bool
+		 ]
+
+	2-- .get_events.json
+	get Events list of events [[string: Any]] = [[Event Dictionary]]
 		[["name" : string,
 		  "location": string,
-		  "attendents" : [["firstName" : string,
+		  "time" : Date    //formate "MM-dd-yyyy hh:mm"
+		 ]]
+
+
+	3-- .check_in_event.json
+	Post check in
+		phone will send  event name & user firstname user email
+		[ "eventName" : String,
+		   "userFirstName" : String,
+		   "userEmail" : String
+		]
+
+		
+
+	4-- .get_users_at_event.json
+	get users at event
+	phone will send
+		[ "eventName" : String]
+	server will send
+	["attendents" : [["firstName" : string,
 		  					"lastName" : string,
 		  					"company" : string,
 		  					"position" : string,
@@ -27,14 +46,20 @@ EndPoints
 															"email": string],
 					 								  ]
 		]]
+	]
+
+	5 .request_contact.json
+	request contact
+	phone will send
+		["requestingUser": ["userName": String,
+						  "userEmail" : String
+						  ],
+		"receivingUser": ["userName": String,
+						  "userEmail" : String
+						  ]
+		 ]
 
 
-	3--Post Check in
-		-send current user
-
-		
-
-	3--
 
 
 

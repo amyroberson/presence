@@ -24,10 +24,8 @@ Event Type
 	-attendants: [User]
 
 RequestType
-	toUserName: String 
-	toUserEmail: email
-	fromUserName: String 
-	fromUserEmail: email
+	toUser: User
+	fromUser: User
 	isActive: Bool
 	time: Date
 
@@ -35,46 +33,4 @@ RequestType
 	.reject()--- deletes self from each users requests
 
 
-	EndPoints
-
-	1-- 
-	Registering A User
-	Post send  array with one user dictionary [String: Any] == [User Dictionary]
-		["firstName" : string,
-		"lastName" : string,
-		"company" : string,
-		"position" : string,
-		"email" : string,
-		"password" : string,
-		"contacts" : ["firstName" : string,
-						"email": string]
-						 ]
-	2--
-	git Events list of events [[string: Any]] = [[Event Dictionary]]
-		[["name" : string,
-		  "location": string,
-		  "attendents" : [["firstName" : string,
-		  					"lastName" : string,
-		  					"company" : string,
-		  					"position" : string,
-		 					 "email" : string,
-		 					 "password" : string,
-		 								 "contacts" : [
-		  												["firstName" : string,
-															"email": string],
-					 								  ]
-		]]
-
-
-	3--Post Check in
-		-send current user
-
-		
-
-	3--
-
-
-
-
-						 			
-
+	

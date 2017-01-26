@@ -12,10 +12,10 @@ import XCTest
 class UserTests: XCTestCase {
     
     func textInits(){
-        let bob = User(firstName: "Bob", lastName: "Smith", company: "PinDrop", position: "CTO", email: "cto@pindrop.com", passWord: "notThis")
+        let bob = User(firstName: "Paul", lastName: "Judge", company: "PinDrop", position: "CTO", email: "Paul@Pin.com", passWord: "notThis", pictureIsPrivate: true)
         let dictionary = bob.toDictionary()
         let bob1 = User(dictionary: dictionary)
-        XCTAssertEqual((bob1)!, bob) 
+        XCTAssertEqual((bob1)!, bob)
     }
     
     

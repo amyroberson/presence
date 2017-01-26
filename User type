@@ -12,6 +12,7 @@ User type
 	-contacts : []
 	-incomeRequests : [requests]
 	-sentRequests: [request]
+	-expiredRequests: [request]
 
 
 
@@ -28,6 +29,7 @@ RequestType
 	fromUserName: String 
 	fromUserEmail: email
 	isActive: Bool
+	time: Date
 
 	.accept()--- adds users to each others contacts
 	.reject()--- deletes self from each users requests

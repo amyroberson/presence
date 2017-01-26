@@ -9,18 +9,33 @@
 import Foundation
 
 
-class Event {
-    var location: String
-    var time: Date
-    var attendents: [User]
+class Request {
+    let toUserName: String
+    let fromUserName: String
+    let toUserEmail: String
+    let fromUserEmail: String
+    var isActive: Bool
     
-    init(location: String, time: Date, attendents: [User]){
-        self.location = location
-        self.time = time
-        self.attendents = attendents
+    init(toUserName: String, fromUserName: String, toUserEmail: String, fromUserEmail: String, isActive: Bool){
+        self.toUserName = toUserName
+        self.fromUserName = fromUserName
+        self.toUserEmail = toUserEmail
+        self.fromUserEmail = fromUserEmail
+        self.isActive = isActive
+    }
+
+    //test this
+    func toDictionary() -> [String : Any]{
+        let dictionary: [String : Any] = [
+            "toUserName" : self.toUserName,
+            "fromUserName" : self.fromUserName,
+            "toUserEmail" : self.toUserEmail,
+            "fromUserEmail" : self.fromUserEmail,
+            "isActive" : self.isActive
+        ]
+        return dictionary
     }
     
-    //toDictionary
-    //init?
+    
     
 }

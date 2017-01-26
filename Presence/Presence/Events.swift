@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+class Event {
+    let name: String
+    let location: String
+    let time: Date
+    let attendents: [User]
+}

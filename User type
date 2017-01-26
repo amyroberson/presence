@@ -5,17 +5,13 @@ User type
 	-position: String *
 	-email: String *
 	-passWord: String *
+	-isAdmin : Bool *
 	-image: UIimage
 	-imageURL: URL?
 	-contacts : [User] = []
+	-incomeRequests : [requests]
+	-sentRequests: [request]
 
-
-
-
-
-	-attendingEvents: [Events] = [] not connected to the user //give me the events matching this user
-	-requestSent: [request]- not connected to the user //give me the requests matching this user
-	-requestReceived: [request] not connected to the user //give me the requests matching this user
 
 
 
@@ -26,9 +22,56 @@ Event Type
 	-attendents: [User]
 
 RequestType
-	toUser: User
-	fromUser: User
+	toUserName: String 
+	toUserEmail: email
+	fromUserName: String 
+	fromUserEmail: email
 	isActive: Bool
 
 	.accept()--- adds users to each others contacts
 	.reject()--- deletes self from each users requests
+
+
+	EndPoints
+
+	1-- 
+	Registering A User
+	Post send  array with one user dictionary [String: Any] == [User Dictionary]
+		["firstName" : string,
+		"lastName" : string,
+		"company" : string,
+		"position" : string,
+		"email" : string,
+		"password" : string,
+		"contacts" : ["firstName" : string,
+						"email": string]
+						 ]
+	2--
+	git Events list of events [[string: Any]] = [[Event Dictionary]]
+		[["name" : string,
+		  "location": string,
+		  "attendents" : [["firstName" : string,
+		  					"lastName" : string,
+		  					"company" : string,
+		  					"position" : string,
+		 					 "email" : string,
+		 					 "password" : string,
+		 								 "contacts" : [
+		  												["firstName" : string,
+															"email": string],
+					 								  ]
+		]]
+
+
+	3--Post Check in
+		-send current user
+
+		
+
+	3--
+
+
+
+
+						 			
+

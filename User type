@@ -1,10 +1,10 @@
 User type 
-	-firstName : String
-	-lastName : String
-	-company: String
-	-position: String
-	-email: String
-	-passWord: String
+	-firstName : String *
+	-lastName : String *
+	-company: String *
+	-position: String *
+	-email: String *
+	-passWord: String *
 	-image: UIimage
 	-imageURL: URL?
 	-attendingEvents: [Events] = []
@@ -21,6 +21,7 @@ Event Type
 RequestType
 	sendingUser: User
 	receivingUser: User
+	isActive: Bool
 
 	.accept()--- adds users to each others contacts
 	.reject()--- deletes self from each users requests

@@ -7,8 +7,9 @@ User type
 	-passWord: String *
 	-isAdmin : Bool *
 	-image: UIimage
+	-pictureIsPrivate: Bool
 	-imageURL: URL?
-	-contacts : [User] = []
+	-contacts : []
 	-incomeRequests : [requests]
 	-sentRequests: [request]
 
@@ -19,7 +20,7 @@ Event Type
 	-name: String
 	-location: String
 	-time: Date
-	-attendents: [User]
+	-attendants: [User]
 
 RequestType
 	toUserName: String 

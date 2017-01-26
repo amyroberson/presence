@@ -1,0 +1,43 @@
+EndPoints
+
+	1-- 
+	Registering A User
+	Post send  array with one user dictionary [String: Any] this [User Dictionary]
+		["firstName" : string,
+		"lastName" : string,
+		"company" : string,
+		"position" : string,
+		"email" : string,
+		"password" : string,
+		"contacts" : ["firstName" : string,
+						"email": string]
+						 ]
+	2--
+	git Events list of events [[string: Any]] = [[Event Dictionary]]
+		[["name" : string,
+		  "location": string,
+		  "attendents" : [["firstName" : string,
+		  					"lastName" : string,
+		  					"company" : string,
+		  					"position" : string,
+		 					 "email" : string,
+		 					 "password" : string,
+		 								 "contacts" : [
+		  												["firstName" : string,
+															"email": string],
+					 								  ]
+		]]
+
+
+	3--Post Check in
+		-send current user
+
+		
+
+	3--
+
+
+
+
+						 			
+

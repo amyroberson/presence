@@ -12,27 +12,36 @@ class Event {
     let name: String
     let location: String
     let time: Date
-    let attendants: [User]
     
-    init(name: String, location: String, time: Date, attendants: [User]){
+    init?(data: [String: Any]){
+        guard let name = data["name"] as? String,
+            let location = data["location"] as? String,
+            let time = data["time"] as? Date else {return nil }
         self.name = name
         self.location = location
         self.time = time
-        self.attendants = attendants
+        
     }
     
+    
+    /*init(name: String, location: String, time: Date, attendants: [User]){
+     self.name = name
+     self.location = location
+     self.time = time
+     self.attendants = attendants
+     }*/
+ 
+ 
     //toDictionary
     func toDictionary() -> [String : Any]{
         let dictionary: [String: Any] = [
             "name" : self.name,
             "location" : self.location,
-            "attendants" : self.attendants.map {( $0.toDictionary)}
+            "time" : self.time //will likely need to be converted
         ]
         return dictionary
     }
     
-    
-    
-    //init?(from dictionary: [String:Any]) need to know time
+   
     
 }

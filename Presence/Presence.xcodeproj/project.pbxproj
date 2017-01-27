@@ -18,7 +18,10 @@
 		E12927861E397A9D008D443B /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12927851E397A9D008D443B /* Events.swift */; };
 		E12927881E397ABB008D443B /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12927871E397ABB008D443B /* Request.swift */; };
 		E129278A1E397DFD008D443B /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12927891E397DFD008D443B /* UserTests.swift */; };
-		E129278C1E3980CE008D443B /* DataURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E129278B1E3980CE008D443B /* DataURL.swift */; };
+		E12927901E3AD7B5008D443B /* EventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E129278F1E3AD7B5008D443B /* EventStore.swift */; };
+		E12927921E3AF119008D443B /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12927911E3AF119008D443B /* Util.swift */; };
+		E12927941E3AF296008D443B /* APIURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12927931E3AF296008D443B /* APIURL.swift */; };
+		E12927961E3AF590008D443B /* UserPostStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12927951E3AF590008D443B /* UserPostStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +59,10 @@
 		E12927851E397A9D008D443B /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		E12927871E397ABB008D443B /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		E12927891E397DFD008D443B /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
-		E129278B1E3980CE008D443B /* DataURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataURL.swift; sourceTree = "<group>"; };
+		E129278F1E3AD7B5008D443B /* EventStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventStore.swift; sourceTree = "<group>"; };
+		E12927911E3AF119008D443B /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		E12927931E3AF296008D443B /* APIURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIURL.swift; sourceTree = "<group>"; };
+		E12927951E3AF590008D443B /* UserPostStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPostStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +116,10 @@
 				E12927541E3979A4008D443B /* AppDelegate.swift */,
 				E12927561E3979A4008D443B /* ViewController.swift */,
 				E12927581E3979A4008D443B /* Main.storyboard */,
-				E129278B1E3980CE008D443B /* DataURL.swift */,
+				E129278F1E3AD7B5008D443B /* EventStore.swift */,
+				E12927931E3AF296008D443B /* APIURL.swift */,
+				E12927911E3AF119008D443B /* Util.swift */,
+				E12927951E3AF590008D443B /* UserPostStore.swift */,
 				E12927841E397A5D008D443B /* Model */,
 				E129275B1E3979A4008D443B /* Assets.xcassets */,
 				E129275D1E3979A4008D443B /* LaunchScreen.storyboard */,
@@ -286,10 +295,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E12927861E397A9D008D443B /* Events.swift in Sources */,
+				E12927941E3AF296008D443B /* APIURL.swift in Sources */,
 				E12927571E3979A4008D443B /* ViewController.swift in Sources */,
 				E12927881E397ABB008D443B /* Request.swift in Sources */,
-				E129278C1E3980CE008D443B /* DataURL.swift in Sources */,
+				E12927921E3AF119008D443B /* Util.swift in Sources */,
+				E12927901E3AD7B5008D443B /* EventStore.swift in Sources */,
 				E12927551E3979A4008D443B /* AppDelegate.swift in Sources */,
+				E12927961E3AF590008D443B /* UserPostStore.swift in Sources */,
 				E12927831E397A58008D443B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,6 +552,7 @@
 				E129277B1E3979A4008D443B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E129277C1E3979A4008D443B /* Build configuration list for PBXNativeTarget "PresenceTests" */ = {
 			isa = XCConfigurationList;
@@ -548,6 +561,7 @@
 				E129277E1E3979A4008D443B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E129277F1E3979A4008D443B /* Build configuration list for PBXNativeTarget "PresenceUITests" */ = {
 			isa = XCConfigurationList;
@@ -556,6 +570,7 @@
 				E12927811E3979A4008D443B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

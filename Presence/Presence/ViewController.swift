@@ -12,7 +12,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let _ = EventStore().fetchEvents(completion: { result in
+            switch result{
+            case .success(let events):
+            print(events)
+            default:
+            print("there was an error")}
+        })
     }
 
     override func didReceiveMemoryWarning() {

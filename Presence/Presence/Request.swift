@@ -10,27 +10,23 @@ import Foundation
 
 
 class Request {
-    let toUserName: String
-    let fromUserName: String
-    let toUserEmail: String
-    let fromUserEmail: String
+    let toUser: User
+    let fromUser: User
     var isActive: Bool
     
-    init(toUserName: String, fromUserName: String, toUserEmail: String, fromUserEmail: String, isActive: Bool){
-        self.toUserName = toUserName
-        self.fromUserName = fromUserName
-        self.toUserEmail = toUserEmail
-        self.fromUserEmail = fromUserEmail
+    init?(data: [String: Any]){
+        guard let toUser = data["toUser"] as? User,
+            let fromUser = data["fromUser"] as? User,
+            let isActive = data["isActive"] as? Bool else {return nil}
+        self.toUser = toUser
+        self.fromUser = fromUser
         self.isActive = isActive
     }
-
-    //test this
+    
     func toDictionary() -> [String : Any]{
         let dictionary: [String : Any] = [
-            "toUserName" : self.toUserName,
-            "fromUserName" : self.fromUserName,
-            "toUserEmail" : self.toUserEmail,
-            "fromUserEmail" : self.fromUserEmail,
+            "toUser": self.toUser.toDictionary(),
+            "fromUser": self.fromUser.toDictionary(),
             "isActive" : self.isActive
         ]
         return dictionary

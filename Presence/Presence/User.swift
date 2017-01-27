@@ -18,31 +18,35 @@ class User : Equatable{
     let pictureIsPrivate: Bool
     
     
-    init(firstName: String, lastName: String, company: String, position: String, email: String, passWord: String, pictureIsPrivate: Bool){
-        self.firstName = firstName
-        self.lastName = lastName
+    init?(dictionary: [String: Any]){
+        guard let first = dictionary["firstName"] as? String,
+            let last = dictionary["lastName"] as? String,
+            let company = dictionary["company"] as? String,
+            let position = dictionary["position"] as? String,
+            let email = dictionary["email"] as? String,
+            let password = dictionary["password"] as? String,
+            let pictureIsPrivate = dictionary["pictureIsPrivate"] as? Bool else {return nil}
+        self.firstName = first
+        self.lastName = last
         self.company = company
         self.position = position
         self.email = email
-        self.password = passWord
+        self.password = password
         self.pictureIsPrivate = pictureIsPrivate
     }
     
     
     //need to add image functionality
-    convenience init?(dictionary: [String: Any]){
-        if let first = dictionary["firstName"] as? String,
-            let last = dictionary["lastName"] as? String,
-            let company = dictionary["company"] as? String,
-            let position = dictionary["position"] as? String,
-            let email = dictionary["email"] as? String,
-            let passWord = dictionary["password"] as? String,
-            let pictureIsPrivate = dictionary["pictureIsPrivate"] as? Bool
-            {
-                self.init(firstName: first, lastName: last, company: company, position: position, email: email, passWord: passWord, pictureIsPrivate: pictureIsPrivate)
-        } else {
-            return nil
-        }
+    convenience init(firstName: String, lastName: String, company: String, position: String, email: String, password: String, pictureIsPrivate: Bool){
+        let dictionary : [String: Any] = [
+            "firstName" : firstName,
+            "lastName" : lastName,
+            "company" : company,
+            "position" : position,
+            "email" : email,
+            "password" : password,
+            "pictureIsPrivate" : pictureIsPrivate]
+        self.init(dictionary: dictionary)!
     }
    
     //need to add image functionality
@@ -51,25 +55,12 @@ class User : Equatable{
             "firstName" : self.firstName,
             "lastName" : self.lastName,
             "company" : self.company,
-            "positon" : self.position,
+            "position" : self.position,
             "email" : self.email,
             "password" : self.password,
-            "picureIsPrivate" : self.pictureIsPrivate,
+            "pictureIsPrivate" : self.pictureIsPrivate,
         ]
         return dictionary
-    }
-    
-    func fetchContacts() -> [User]{
-        // send server self/
-        return []
-    }
-    
-    func fetchSentRequests() -> [Request]{
-        return []
-    }
-    
-    func fetchReceivedRequests() -> [Request]{
-        
     }
     
     

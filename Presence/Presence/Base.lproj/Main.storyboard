@@ -808,10 +808,10 @@
             </objects>
             <point key="canvasLocation" x="2912.8000000000002" y="-863.1184407796103"/>
         </scene>
-        <!--View Controller-->
+        <!--Accept Reject View Controller-->
         <scene sceneID="KuJ-rk-7QR">
             <objects>
-                <viewController id="V80-Hz-ieZ" sceneMemberID="viewController">
+                <viewController id="V80-Hz-ieZ" customClass="AcceptRejectViewController" customModule="Presence" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4nP-l4-GZ5"/>
                         <viewControllerLayoutGuide type="bottom" id="7qu-JE-uIr"/>
@@ -819,17 +819,59 @@
                     <view key="view" contentMode="scaleToFill" id="hNu-ph-k4l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="xz0-8h-eo2">
+                                <rect key="frame" x="112.5" y="173.5" width="150" height="320.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKo-va-oF6">
+                                        <rect key="frame" x="32" y="0.0" width="86" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Owp-e2-6OA">
+                                        <rect key="frame" x="0.0" y="50.5" width="150" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="3lM-ph-hdk"/>
+                                            <constraint firstAttribute="height" constant="150" id="lJX-jn-3fD"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYh-rM-Kyk">
+                                        <rect key="frame" x="50.5" y="230.5" width="49" height="30"/>
+                                        <state key="normal" title="Accept"/>
+                                        <connections>
+                                            <action selector="acceptButtonTapped:" destination="V80-Hz-ieZ" eventType="touchUpInside" id="goD-hu-eGA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yB8-8n-8wy">
+                                        <rect key="frame" x="53.5" y="290.5" width="43" height="30"/>
+                                        <state key="normal" title="Reject"/>
+                                        <connections>
+                                            <action selector="rejectButtonTapped:" destination="V80-Hz-ieZ" eventType="touchUpInside" id="4E7-9H-S8f"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xz0-8h-eo2" firstAttribute="centerY" secondItem="hNu-ph-k4l" secondAttribute="centerY" id="22W-Kq-A14"/>
+                            <constraint firstItem="xz0-8h-eo2" firstAttribute="centerX" secondItem="hNu-ph-k4l" secondAttribute="centerX" id="gL5-S8-gnb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="userImage" destination="Owp-e2-6OA" id="86t-6D-ciU"/>
+                        <outlet property="userNameLabel" destination="UKo-va-oF6" id="ENh-IH-890"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qIg-TM-FkW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3724" y="-875"/>
         </scene>
-        <!--View Controller-->
+        <!--Reactivate Request View Controller-->
         <scene sceneID="64o-oC-RJu">
             <objects>
-                <viewController id="KE4-zR-wfC" sceneMemberID="viewController">
+                <viewController id="KE4-zR-wfC" customClass="ReactivateRequestViewController" customModule="Presence" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OlB-yB-36r"/>
                         <viewControllerLayoutGuide type="bottom" id="Zdb-mU-Skh"/>
@@ -837,12 +879,47 @@
                     <view key="view" contentMode="scaleToFill" id="eom-Iw-9Ng">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="aI4-DR-D9f">
+                                <rect key="frame" x="112.5" y="203.5" width="150" height="260.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnS-gq-LCJ">
+                                        <rect key="frame" x="32" y="0.0" width="86" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1ri-ef-HsG">
+                                        <rect key="frame" x="0.0" y="50.5" width="150" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="8O0-lj-6ir"/>
+                                            <constraint firstAttribute="height" constant="150" id="hM6-mg-KYl"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iO-Gv-lt3">
+                                        <rect key="frame" x="39" y="230.5" width="72" height="30"/>
+                                        <state key="normal" title="Reactivate"/>
+                                        <connections>
+                                            <action selector="reactivateButtonPressed:" destination="KE4-zR-wfC" eventType="touchUpInside" id="BSB-5y-ASE"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aI4-DR-D9f" firstAttribute="centerY" secondItem="eom-Iw-9Ng" secondAttribute="centerY" id="HoC-NU-MfH"/>
+                            <constraint firstItem="aI4-DR-D9f" firstAttribute="centerX" secondItem="eom-Iw-9Ng" secondAttribute="centerX" id="wMn-9y-an1"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="userImage" destination="1ri-ef-HsG" id="e8Z-3x-0wc"/>
+                        <outlet property="userNameLabel" destination="nnS-gq-LCJ" id="SZM-oE-JSe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Umk-9J-Eq8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4505" y="-872"/>
+            <point key="canvasLocation" x="4504.8000000000002" y="-872.11394302848578"/>
         </scene>
         <!--Events-->
         <scene sceneID="Vw8-MQ-Tbb">

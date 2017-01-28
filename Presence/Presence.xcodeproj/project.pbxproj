@@ -34,6 +34,8 @@
 		E12927AA1E3D0633008D443B /* RequestContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12927A91E3D0633008D443B /* RequestContactViewController.swift */; };
 		E12927AC1E3D1466008D443B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12927AB1E3D1466008D443B /* ProfileViewController.swift */; };
 		E12927AE1E3D16F4008D443B /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12927AD1E3D16F4008D443B /* RequestsViewController.swift */; };
+		E1D75C681E3D3E3C005ECB34 /* AcceptRejectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D75C671E3D3E3C005ECB34 /* AcceptRejectViewController.swift */; };
+		E1D75C6A1E3D3E5E005ECB34 /* ReactivateRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D75C691E3D3E5E005ECB34 /* ReactivateRequestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		E12927A91E3D0633008D443B /* RequestContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestContactViewController.swift; sourceTree = "<group>"; };
 		E12927AB1E3D1466008D443B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E12927AD1E3D16F4008D443B /* RequestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
+		E1D75C671E3D3E3C005ECB34 /* AcceptRejectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptRejectViewController.swift; sourceTree = "<group>"; };
+		E1D75C691E3D3E5E005ECB34 /* ReactivateRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactivateRequestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +150,9 @@
 				E12927A31E3CD6E0008D443B /* TabsViewController.swift */,
 				E12927A91E3D0633008D443B /* RequestContactViewController.swift */,
 				E12927AD1E3D16F4008D443B /* RequestsViewController.swift */,
+				E1D75C671E3D3E3C005ECB34 /* AcceptRejectViewController.swift */,
 				E12927A71E3CFA5F008D443B /* EventAttendantViewController.swift */,
+				E1D75C691E3D3E5E005ECB34 /* ReactivateRequestViewController.swift */,
 				E12927AB1E3D1466008D443B /* ProfileViewController.swift */,
 				E12927A51E3CEEBE008D443B /* EventCheckInViewController.swift */,
 				E12927911E3AF119008D443B /* Util.swift */,
@@ -332,12 +338,14 @@
 			files = (
 				E129279E1E3C48BF008D443B /* EventsViewController.swift in Sources */,
 				E12927861E397A9D008D443B /* Events.swift in Sources */,
+				E1D75C681E3D3E3C005ECB34 /* AcceptRejectViewController.swift in Sources */,
 				E12927941E3AF296008D443B /* APIURL.swift in Sources */,
 				E12927571E3979A4008D443B /* RegisterViewController.swift in Sources */,
 				E12927A01E3C4CBE008D443B /* UserContactsViewController.swift in Sources */,
 				E12927A81E3CFA5F008D443B /* EventAttendantViewController.swift in Sources */,
 				E12927AC1E3D1466008D443B /* ProfileViewController.swift in Sources */,
 				E12927881E397ABB008D443B /* Request.swift in Sources */,
+				E1D75C6A1E3D3E5E005ECB34 /* ReactivateRequestViewController.swift in Sources */,
 				E12927921E3AF119008D443B /* Util.swift in Sources */,
 				E12927AA1E3D0633008D443B /* RequestContactViewController.swift in Sources */,
 				E12927901E3AD7B5008D443B /* EventStore.swift in Sources */,

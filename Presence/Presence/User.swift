@@ -19,6 +19,10 @@ class User : Equatable{
     let showImage: Bool?
     let image: UIImage
     
+    var fullName: String {
+        return "\(firstName) \(lastName)"
+    }
+    
     init?(dictionary: [String: Any]){
         guard let first = dictionary["firstName"] as? String,
             let last = dictionary["lastName"] as? String,

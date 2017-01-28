@@ -49,7 +49,9 @@ class EventAttendantViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //send to requst page or contact page
+        let contact = contacts[indexPath.row]
+        // if contact.contacts.contains.user, send to contactViewController
+        //else send to requestViewController
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

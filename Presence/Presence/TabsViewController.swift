@@ -10,7 +10,7 @@ import UIKit
 
 class TabsViewController: UITabBarController {
 
-    var user: User? = (User(firstName: "Paul", lastName: "Judge", company: "PinDrop", position: "CTO", email: "Paul@Pin.com", password: "notThis", showImage: true, image: UIImage(named: "synthwave")!))    
+    var user: User? = (User(firstName: "Lilly", lastName: "Judge", company: "PinDrop", position: "CTO", email: "Paul@Pin.com", password: "notThis", showImage: true, image: UIImage(named: "synthwave")!))
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +20,11 @@ class TabsViewController: UITabBarController {
                     eventsVC.user = user
                 } else if let contactsVC = controller.topViewController as? UserContactsViewController{
                     contactsVC.user = user
-                }
+                } else if let requestVC = controller.topViewController as? RequestsViewController{
+                    requestVC.user = user
+            } else if let controller = item as? ProfileViewController{
+                controller.user = user
+            }
             }
         }
     }

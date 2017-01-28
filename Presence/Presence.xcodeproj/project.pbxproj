@@ -31,6 +31,9 @@
 		E12927A41E3CD6E0008D443B /* TabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12927A31E3CD6E0008D443B /* TabsViewController.swift */; };
 		E12927A61E3CEEBE008D443B /* EventCheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12927A51E3CEEBE008D443B /* EventCheckInViewController.swift */; };
 		E12927A81E3CFA5F008D443B /* EventAttendantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12927A71E3CFA5F008D443B /* EventAttendantViewController.swift */; };
+		E12927AA1E3D0633008D443B /* RequestContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12927A91E3D0633008D443B /* RequestContactViewController.swift */; };
+		E12927AC1E3D1466008D443B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12927AB1E3D1466008D443B /* ProfileViewController.swift */; };
+		E12927AE1E3D16F4008D443B /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12927AD1E3D16F4008D443B /* RequestsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,9 @@
 		E12927A31E3CD6E0008D443B /* TabsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabsViewController.swift; sourceTree = "<group>"; };
 		E12927A51E3CEEBE008D443B /* EventCheckInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCheckInViewController.swift; sourceTree = "<group>"; };
 		E12927A71E3CFA5F008D443B /* EventAttendantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAttendantViewController.swift; sourceTree = "<group>"; };
+		E12927A91E3D0633008D443B /* RequestContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestContactViewController.swift; sourceTree = "<group>"; };
+		E12927AB1E3D1466008D443B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E12927AD1E3D16F4008D443B /* RequestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +144,10 @@
 				E129279D1E3C48BF008D443B /* EventsViewController.swift */,
 				E129279F1E3C4CBE008D443B /* UserContactsViewController.swift */,
 				E12927A31E3CD6E0008D443B /* TabsViewController.swift */,
+				E12927A91E3D0633008D443B /* RequestContactViewController.swift */,
+				E12927AD1E3D16F4008D443B /* RequestsViewController.swift */,
 				E12927A71E3CFA5F008D443B /* EventAttendantViewController.swift */,
+				E12927AB1E3D1466008D443B /* ProfileViewController.swift */,
 				E12927A51E3CEEBE008D443B /* EventCheckInViewController.swift */,
 				E12927911E3AF119008D443B /* Util.swift */,
 				E12927581E3979A4008D443B /* Main.storyboard */,
@@ -327,13 +336,16 @@
 				E12927571E3979A4008D443B /* RegisterViewController.swift in Sources */,
 				E12927A01E3C4CBE008D443B /* UserContactsViewController.swift in Sources */,
 				E12927A81E3CFA5F008D443B /* EventAttendantViewController.swift in Sources */,
+				E12927AC1E3D1466008D443B /* ProfileViewController.swift in Sources */,
 				E12927881E397ABB008D443B /* Request.swift in Sources */,
 				E12927921E3AF119008D443B /* Util.swift in Sources */,
+				E12927AA1E3D0633008D443B /* RequestContactViewController.swift in Sources */,
 				E12927901E3AD7B5008D443B /* EventStore.swift in Sources */,
 				E12927A41E3CD6E0008D443B /* TabsViewController.swift in Sources */,
 				E12927551E3979A4008D443B /* AppDelegate.swift in Sources */,
 				E12927961E3AF590008D443B /* UserPostStore.swift in Sources */,
 				E12927A61E3CEEBE008D443B /* EventCheckInViewController.swift in Sources */,
+				E12927AE1E3D16F4008D443B /* RequestsViewController.swift in Sources */,
 				E12927831E397A58008D443B /* User.swift in Sources */,
 				E12927A21E3CD5A0008D443B /* LoginViewController.swift in Sources */,
 				E129279C1E3C3026008D443B /* ContactViewController.swift in Sources */,

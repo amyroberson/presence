@@ -119,7 +119,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
                 }
             let user = User(firstName: firstname, lastName: lastName, company: company, position: position, email: email, password: password, showImage: showImage, image: image)
             let dictionary = user.toDictionary()
-            do {
+            /*do {
                 let data = try Util.toJson(dictionary: dictionary)
                 UserPostStore().pushPost(json: data, completion: { result in
                     switch result{
@@ -133,7 +133,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
             } catch {
                 print("toJson Error")
             }
-            print("i think it worked!")
+            print("i think it worked!")*/
             let storyboard = UIStoryboard(name: "Main", bundle: .main)
             let tabsVC = storyboard.instantiateViewController(withIdentifier: "TabsMenu") as! TabsViewController
             tabsVC.user = user

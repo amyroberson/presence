@@ -17,7 +17,8 @@ class Request {
     init?(data: [String: Any]){
         guard let toUser = data["toUser"] as? User,
             let fromUser = data["fromUser"] as? User,
-            let isActive = data["isActive"] as? Bool else {return nil}
+            let isActive = data["isActive"] as? Bool
+            else {return nil}
         self.toUser = toUser
         self.fromUser = fromUser
         self.isActive = isActive

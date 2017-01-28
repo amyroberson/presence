@@ -64,17 +64,29 @@ struct Util {
         let jsonRepresentation = try JSONSerialization.data(withJSONObject: dictionary, options: [])
         return jsonRepresentation
     }
-}
-
-
-extension Util{
     
-    static func getCurrentYear()-> Int{
-        let userCalender = Calendar.current
-        let currentDate = Date()
-        let currentDateComponets = userCalender.dateComponents( [.year], from: currentDate)
-        let currentYear = currentDateComponets.year!
-        return currentYear
+    private static var dateFormatter: DateFormatter?
+    
+    static func getDateFormatter() -> DateFormatter {
+        
+        if dateFormatter == nil {
+            dateFormatter = DateFormatter()
+            dateFormatter?.dateStyle = .long
+            dateFormatter?.timeStyle = .long
+            dateFormatter?.locale = Locale(identifier: "en_US_POSIX")
+            dateFormatter?.dateFormat = "MM-dd-yyyy"
+            dateFormatter?.timeZone = TimeZone(secondsFromGMT: 0)
+        }
+        
+        return dateFormatter!
     }
 
 }
+
+extension Date {
+    public func toString() -> String {
+        let formatter = Util.getDateFormatter()
+        return formatter.string(from: self)
+    }
+}
+

@@ -13,13 +13,15 @@ class Event {
     let location: String
     let address: String
     let time: Date
+    var contacts: [User]
     
     init?(data: [String: Any]){
         
         guard let name = data["name"] as? String,
             let location = data["location"] as? String,
             let address = data["address"] as? String,
-            let time = data["time"] as? TimeInterval
+            let time = data["time"] as? TimeInterval,
+            let contacts = data["contacts"] as? [User]
         else {return nil }
         let x = Date(timeIntervalSince1970: time / 1000)
         let parts = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: x)
@@ -29,6 +31,7 @@ class Event {
             self.location = location
             self.time = date
             self.address = address
+            self.contacts = contacts
         } else {
             return nil
         }
@@ -41,7 +44,8 @@ class Event {
             "name" : self.name,
             "location" : self.location,
             "time" : self.time.timeIntervalSince1970 * 1000,
-            "address" : self.address
+            "address" : self.address,
+            "contacts" : self.contacts.map { $0.toDictionary }
         ]
         return dictionary
     }

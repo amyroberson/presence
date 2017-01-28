@@ -136,6 +136,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
             print("i think it worked!")
             let storyboard = UIStoryboard(name: "Main", bundle: .main)
             let tabsVC = storyboard.instantiateViewController(withIdentifier: "TabsMenu") as! TabsViewController
+            tabsVC.user = user
             self.present(tabsVC, animated: true, completion: nil)
         } else {
             print("not registered")

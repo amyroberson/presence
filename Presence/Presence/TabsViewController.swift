@@ -10,18 +10,19 @@ import UIKit
 
 class TabsViewController: UITabBarController {
 
+    var user: User? = (User(firstName: "Paul", lastName: "Judge", company: "PinDrop", position: "CTO", email: "Paul@Pin.com", password: "notThis", showImage: true, image: UIImage(named: "synthwave")!))    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       /* for item in self.viewControllers!{
+        for item in self.viewControllers!{
             if let controller = item as? UINavigationController{
-                if let viewController = controller.topViewController as? EventsViewController{
-                
-                } else if let viewController = controller.topViewController as? ContactViewController{
-                    
+                if let eventsVC = controller.topViewController as? EventsViewController{
+                    eventsVC.user = user
+                } else if let contactsVC = controller.topViewController as? UserContactsViewController{
+                    contactsVC.user = user
                 }
             }
-        }*/
+        }
     }
 
     

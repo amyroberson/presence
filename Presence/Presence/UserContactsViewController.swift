@@ -12,12 +12,13 @@ import UIKit
 class UserContactsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     var contacts: [User] = []
+    var user: User? = nil
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Contacts"
         
         tableView.delegate = self
         tableView.dataSource = self

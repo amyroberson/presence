@@ -11,25 +11,28 @@ import Foundation
 class Event {
     let name: String
     let location: String
+    let address: String
     let time: Date
     
     init?(data: [String: Any]){
+        
         guard let name = data["name"] as? String,
             let location = data["location"] as? String,
-            let time = data["time"] as? Date else {return nil }
-        self.name = name
-        self.location = location
-        self.time = time
-        
+            let address = data["address"] as? String,
+            let time = data["time"] as? TimeInterval
+        else {return nil }
+        let x = Date(timeIntervalSince1970: time / 1000)
+        let parts = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: x)
+        let theDate = Calendar.current.date(from: parts)
+        if let date = theDate {
+            self.name = name
+            self.location = location
+            self.time = date
+            self.address = address
+        } else {
+            return nil
+        }
     }
-    
-    
-    /*init(name: String, location: String, time: Date, attendants: [User]){
-     self.name = name
-     self.location = location
-     self.time = time
-     self.attendants = attendants
-     }*/
  
  
     //toDictionary
@@ -37,7 +40,8 @@ class Event {
         let dictionary: [String: Any] = [
             "name" : self.name,
             "location" : self.location,
-            "time" : self.time //will likely need to be converted
+            "time" : self.time.timeIntervalSince1970 * 1000,
+            "address" : self.address
         ]
         return dictionary
     }

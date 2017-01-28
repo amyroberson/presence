@@ -11,6 +11,16 @@ import Foundation
 enum ResourceResult<A> {
     case success(A)
     case failure(Resource)
+    
+    var innerType: Any? {
+        switch self{
+        case .success(let object):
+                return object
+        case .failure(let object):
+            return object
+        }
+    }
+  
 }
 
 enum Resource: Swift.Error{
@@ -30,7 +40,6 @@ struct Util {
         if let dictionary = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [[String: Any]] {
             let objects = dictionary.flatMap(parse)
             return .success(objects)
-            
         } else {
             return .failure(.API(.invalidJSONData))
         }
@@ -55,4 +64,17 @@ struct Util {
         let jsonRepresentation = try JSONSerialization.data(withJSONObject: dictionary, options: [])
         return jsonRepresentation
     }
+}
+
+
+extension Util{
+    
+    static func getCurrentYear()-> Int{
+        let userCalender = Calendar.current
+        let currentDate = Date()
+        let currentDateComponets = userCalender.dateComponents( [.year], from: currentDate)
+        let currentYear = currentDateComponets.year!
+        return currentYear
+    }
+
 }

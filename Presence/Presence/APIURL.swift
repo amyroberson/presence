@@ -16,19 +16,39 @@ struct APIURL {
         return APIURL.baseURL.appendingPathComponent(endPoint.pathComponents)
     }
     
+    func createRequest(endpoint: EndPoint) -> URLRequest {
+        fatalError()
+    }
+    
+    
     enum EndPoint{
         case addUser
         case getEvents
+        case getUser
         
         
         var pathComponents: String {
             switch self{
             case .addUser:
-                return ".add_user"
+                return "add_user.json"
             case .getEvents:
-                return ".getEvents"
+                return "get_events.json"
+            case .getUser:
+                return "get_user.json"
+            }
+        }
+        
+        var httpMethod: String {
+            switch self{
+            case .addUser:
+                return "POST"
+            case .getEvents:
+                return "GET"
+            case .getUser:
+                return "POST"
             }
         }
     }
+    
 }
 

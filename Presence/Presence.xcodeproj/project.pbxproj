@@ -24,6 +24,11 @@
 		E12927961E3AF590008D443B /* UserPostStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12927951E3AF590008D443B /* UserPostStore.swift */; };
 		E12927981E3BD7B7008D443B /* EventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12927971E3BD7B7008D443B /* EventTests.swift */; };
 		E129279A1E3BE523008D443B /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12927991E3BE523008D443B /* RequestTests.swift */; };
+		E129279C1E3C3026008D443B /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E129279B1E3C3026008D443B /* ContactViewController.swift */; };
+		E129279E1E3C48BF008D443B /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E129279D1E3C48BF008D443B /* EventsViewController.swift */; };
+		E12927A01E3C4CBE008D443B /* UserContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E129279F1E3C4CBE008D443B /* UserContactsViewController.swift */; };
+		E12927A21E3CD5A0008D443B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12927A11E3CD5A0008D443B /* LoginViewController.swift */; };
+		E12927A41E3CD6E0008D443B /* TabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12927A31E3CD6E0008D443B /* TabsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +72,11 @@
 		E12927951E3AF590008D443B /* UserPostStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPostStore.swift; sourceTree = "<group>"; };
 		E12927971E3BD7B7008D443B /* EventTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTests.swift; sourceTree = "<group>"; };
 		E12927991E3BE523008D443B /* RequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
+		E129279B1E3C3026008D443B /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		E129279D1E3C48BF008D443B /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		E129279F1E3C4CBE008D443B /* UserContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserContactsViewController.swift; sourceTree = "<group>"; };
+		E12927A11E3CD5A0008D443B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E12927A31E3CD6E0008D443B /* TabsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +131,11 @@
 				E12927561E3979A4008D443B /* RegisterViewController.swift */,
 				E12927581E3979A4008D443B /* Main.storyboard */,
 				E129278F1E3AD7B5008D443B /* EventStore.swift */,
+				E12927A11E3CD5A0008D443B /* LoginViewController.swift */,
+				E129279B1E3C3026008D443B /* ContactViewController.swift */,
+				E129279D1E3C48BF008D443B /* EventsViewController.swift */,
+				E129279F1E3C4CBE008D443B /* UserContactsViewController.swift */,
+				E12927A31E3CD6E0008D443B /* TabsViewController.swift */,
 				E12927931E3AF296008D443B /* APIURL.swift */,
 				E12927911E3AF119008D443B /* Util.swift */,
 				E12927951E3AF590008D443B /* UserPostStore.swift */,
@@ -300,15 +315,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E129279E1E3C48BF008D443B /* EventsViewController.swift in Sources */,
 				E12927861E397A9D008D443B /* Events.swift in Sources */,
 				E12927941E3AF296008D443B /* APIURL.swift in Sources */,
 				E12927571E3979A4008D443B /* RegisterViewController.swift in Sources */,
+				E12927A01E3C4CBE008D443B /* UserContactsViewController.swift in Sources */,
 				E12927881E397ABB008D443B /* Request.swift in Sources */,
 				E12927921E3AF119008D443B /* Util.swift in Sources */,
 				E12927901E3AD7B5008D443B /* EventStore.swift in Sources */,
+				E12927A41E3CD6E0008D443B /* TabsViewController.swift in Sources */,
 				E12927551E3979A4008D443B /* AppDelegate.swift in Sources */,
 				E12927961E3AF590008D443B /* UserPostStore.swift in Sources */,
 				E12927831E397A58008D443B /* User.swift in Sources */,
+				E12927A21E3CD5A0008D443B /* LoginViewController.swift in Sources */,
+				E129279C1E3C3026008D443B /* ContactViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

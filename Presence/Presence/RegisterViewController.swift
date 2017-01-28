@@ -64,14 +64,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
          default:
          print("there was an error")}
          }) 
-        let _ = EventStore().fetchEvents(completion: { result in
-            switch result{
-            case .success(let events):
-            print(events)
-            print(events[0].time)
-            default:
-            print("there was an error")}
-        })*/
+        */
     }
     
     @IBAction func selectPhotoButtonPressed(_ sender: UIButton) {
@@ -141,6 +134,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
                 print("toJson Error")
             }
             print("i think it worked!")
+            let storyboard = UIStoryboard(name: "Main", bundle: .main)
+            let tabsVC = storyboard.instantiateViewController(withIdentifier: "TabsMenu") as! TabsViewController
+            self.present(tabsVC, animated: true, completion: nil)
         } else {
             print("not registered")
             // have an label appear that says need more info

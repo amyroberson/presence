@@ -17,8 +17,8 @@ class RequestContactViewController: UIViewController {
     @IBOutlet weak var contactNameLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        contactNameLabel.text = contact?.fullName
+        contactImage.image = contact?.image
     }
 
     

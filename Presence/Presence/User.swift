@@ -16,7 +16,7 @@ class User : Equatable{
     let position: String
     let email: String
     let password: String
-    let showImage: Bool?
+    let showImage: Bool
     let image: UIImage
     
     var fullName: String {
@@ -77,7 +77,7 @@ class User : Equatable{
             "position" : self.position,
             "email" : self.email,
             "password" : self.password,
-            "showImage" : self.showImage ?? true,
+            "showImage" : self.showImage,
             "image": imageData?.base64EncodedString() ?? ""
         ]
         return dictionary

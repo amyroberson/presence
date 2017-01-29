@@ -95,7 +95,7 @@
         <!--Register View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="RegisterViewController" customModule="Presence" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Register" id="BYZ-38-t0r" customClass="RegisterViewController" customModule="Presence" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -780,14 +780,6 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="EXc-JQ-uyM">
-                                        <rect key="frame" x="0.0" y="57" width="343" height="29"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EXc-JQ-uyM" id="rHK-75-nVc">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="28"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -811,7 +803,7 @@
         <!--Accept Reject View Controller-->
         <scene sceneID="KuJ-rk-7QR">
             <objects>
-                <viewController id="V80-Hz-ieZ" customClass="AcceptRejectViewController" customModule="Presence" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AcceptReject" id="V80-Hz-ieZ" customClass="AcceptRejectViewController" customModule="Presence" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4nP-l4-GZ5"/>
                         <viewControllerLayoutGuide type="bottom" id="7qu-JE-uIr"/>
@@ -871,7 +863,7 @@
         <!--Reactivate Request View Controller-->
         <scene sceneID="64o-oC-RJu">
             <objects>
-                <viewController id="KE4-zR-wfC" customClass="ReactivateRequestViewController" customModule="Presence" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Reactivate" id="KE4-zR-wfC" customClass="ReactivateRequestViewController" customModule="Presence" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OlB-yB-36r"/>
                         <viewControllerLayoutGuide type="bottom" id="Zdb-mU-Skh"/>

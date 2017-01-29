@@ -59,9 +59,19 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0{
-            //send to reject/accept page
+            let storyBoard = UIStoryboard(name: "Main", bundle: .main)
+            let acceptRejectVC = storyBoard.instantiateViewController(withIdentifier: "AcceptReject") as! AcceptRejectViewController
+            //set user and contact 
+            acceptRejectVC.contact = requests[indexPath.section][indexPath.row].fromUser
+            acceptRejectVC.request = requests[indexPath.section][indexPath.row]
+            self.show(acceptRejectVC, sender: nil)
+            
         } else {
-            //send to reactivate page
+            let storyBoard = UIStoryboard(name: "Main", bundle: .main)
+            let reactivateVC = storyBoard.instantiateViewController(withIdentifier: "Reactivate") as! ReactivateRequestViewController
+                reactivateVC.contact = requests[indexPath.section][indexPath.row].toUser
+                reactivateVC.request = requests[indexPath.section][indexPath.row]
+            self.show(reactivateVC, sender: nil)
         }
     }
     

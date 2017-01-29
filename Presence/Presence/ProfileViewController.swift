@@ -22,10 +22,12 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if (user?.showImage)! {
-            privacyLabel.text = "Image privacy: Off"
-        } else {
-            privacyLabel.text = "Image privacy: On"
+        if let _user = user{
+            if _user.showImage {
+                privacyLabel.text = "Image privacy: Off"
+            } else {
+                privacyLabel.text = "Image privacy: On"
+            }
         }
         emailLabel.text = user?.email
         positionLabel.text = user?.position

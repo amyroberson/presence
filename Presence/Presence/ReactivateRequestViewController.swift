@@ -10,8 +10,8 @@ import UIKit
 
 class ReactivateRequestViewController: UIViewController {
 
-    let contact: User? = nil
-    let request: Request? = nil
+    var contact: User? = nil
+    var request: Request? = nil
     
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userImage: UIImageView!

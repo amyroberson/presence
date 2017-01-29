@@ -10,6 +10,7 @@ import Foundation
 
 enum ResourceResult<A> {
     case success(A)
+    case sucess(Bool)
     case failure(Resource)
     
     var innerType: Any? {
@@ -18,6 +19,8 @@ enum ResourceResult<A> {
                 return object
         case .failure(let object):
             return object
+        default:
+            return nil
         }
     }
   

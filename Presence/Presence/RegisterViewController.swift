@@ -9,7 +9,7 @@
 import UIKit
 
 class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     var image: UIImage? = UIImage(named: "synthwave"){
         didSet{
             refresh()
@@ -25,6 +25,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
     @IBOutlet weak var privacySwitch: UISwitch!
     @IBOutlet weak var userImage: UIImageView!
     
+    @IBOutlet weak var moreInfoLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -36,35 +37,36 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
         positionTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        moreInfoLabel.isHidden = true
         
         
         
-       /* let user = User(firstName: "Bob", lastName: "Smith", company: "IronYard", position: "Teacher", email: "me@IronYard.com", password: "password", showImage: false, image: UIImage(named: "synthwave")!)
-        let dictionary = user.toDictionary()
-        do {
-            let data = try Util.toJson(dictionary: dictionary)
-            UserPostStore().pushPost(json: data, completion: { result in
-                switch result{
-                case .success(let data):
-                    print(data)
-                case .failure(let resource):
-                    print(resource)
-                }
-                
-            })
-        } catch {
-            print("toJson Error")
-        }
-        
-        let _ = UserPostStore().fetchUsers(completion: { result in
+        /* let user = User(firstName: "Bob", lastName: "Smith", company: "IronYard", position: "Teacher", email: "me@IronYard.com", password: "password", showImage: false, image: UIImage(named: "synthwave")!)
+         let dictionary = user.toDictionary()
+         do {
+         let data = try Util.toJson(dictionary: dictionary)
+         UserPostStore().pushPost(json: data, completion: { result in
+         switch result{
+         case .success(let data):
+         print(data)
+         case .failure(let resource):
+         print(resource)
+         }
+         
+         })
+         } catch {
+         print("toJson Error")
+         }
+         
+         let _ = UserPostStore().fetchUsers(completion: { result in
          switch result{
          case .success(let users):
-         print(users)
-        
+         (users)
+         
          default:
          print("there was an error")}
-         }) 
-        */
+         })
+         */
     }
     
     @IBAction func selectPhotoButtonPressed(_ sender: UIButton) {
@@ -102,45 +104,53 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
         refresh()
         dismiss(animated: true, completion:nil)
     }
-
+    
     @IBAction func RegisterButtonTapped(_ sender: UIButton) {
-        if let firstname = firstNameTextField.text,
-            let lastName = lastNameTextField.text,
-            let company  = companyTextField.text,
-            let position = positionTextField.text,
-            let email = emailTextField.text,
-            let password = passwordTextField.text,
-            let image = userImage.image {
-            var showImage: Bool
-            if privacySwitch.isOn {
+        if firstNameTextField.text! != "" || lastNameTextField.text! != "" ||
+            companyTextField.text! != "" || positionTextField.text! != "" || emailTextField.text! != "" ||
+            passwordTextField.text! != "" {
+        
+            if let firstname = firstNameTextField.text,
+                let lastName = lastNameTextField.text,
+                let company  = companyTextField.text,
+                let position = positionTextField.text,
+                let email = emailTextField.text,
+                let password = passwordTextField.text,
+                let image = userImage.image {
+                var showImage: Bool
+                if privacySwitch.isOn {
                     showImage = false
                 } else {
                     showImage = true
                 }
-            let user = User(firstName: firstname, lastName: lastName, company: company, position: position, email: email, password: password, showImage: showImage, image: image)
-            let dictionary = user.toDictionary()
-            /*do {
-                let data = try Util.toJson(dictionary: dictionary)
-                UserPostStore().pushPost(json: data, completion: { result in
-                    switch result{
-                    case .success(let data):
-                        print(data)
-                    case .failure(let resource):
-                        print(resource)
-                    }
-                    
-                })
-            } catch {
-                print("toJson Error")
+                var user = User(firstName: firstname, lastName: lastName, company: company, position: position, email: email, password: password, showImage: showImage, image: image)
+                let dictionary = user.toDictionary()
+                do {
+                    let data = try Util.toJson(dictionary: dictionary)
+                    UserPostStore(endpoint: .addUser).pushPostRegister(json: data, completion: { result in
+                        switch result{
+                        case .success(let data):
+                            if let _data = data as? User{
+                                user = _data
+                            }
+                        case .failure(let resource):
+                            print(resource)
+                        default:
+                            break
+                        }
+                    })
+                } catch {
+                    print("toJson Error")
+                }
+                
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: .main)
+                let tabsVC = storyboard.instantiateViewController(withIdentifier: "TabsMenu") as! TabsViewController
+                tabsVC.user = user
+                self.present(tabsVC, animated: true, completion: nil)
             }
-            print("i think it worked!")*/
-            let storyboard = UIStoryboard(name: "Main", bundle: .main)
-            let tabsVC = storyboard.instantiateViewController(withIdentifier: "TabsMenu") as! TabsViewController
-            tabsVC.user = user
-            self.present(tabsVC, animated: true, completion: nil)
         } else {
-            print("not registered")
-            // have an label appear that says need more info
+            moreInfoLabel.isHidden = false
         }
         
     }
@@ -150,6 +160,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
     func refresh(){
         userImage.image = image
     }
-
+    
 }
 

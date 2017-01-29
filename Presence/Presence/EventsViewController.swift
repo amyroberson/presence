@@ -26,11 +26,11 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         let theDate = Calendar.current.date(from: parts)
         let dictionary: [String: Any] = [
-            "name" : "IronPints",
+            "eventName" : "IronPints",
             "address" : "here",
             "location": "M.Rich Building",
             "time": ( (theDate?.timeIntervalSince1970)! *  1000),
-            "contacts" : [User(firstName: "Paul", lastName: "Judge", company: "PinDrop", position: "CTO", email: "Paul@Pin.com", password: "notThis", showImage: true, image: UIImage(named: "synthwave")!)]
+            "guests" : [User(firstName: "Paul", lastName: "Judge", company: "PinDrop", position: "CTO", email: "Paul@Pin.com", password: "notThis", showImage: true, image: UIImage(named: "synthwave")!)]
         ]
         events = [Event(data: dictionary)!]
         self.title = "Events"
@@ -53,7 +53,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let event = events[indexPath.row]
         if let _User = user{
-        if (event?.contacts.contains(_User))! {
+        if (event?.guests.contains(_User))! {
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             let eventAttendantsVC = storyBoard.instantiateViewController(withIdentifier: "EventAttendants") as! EventAttendantViewController
             eventAttendantsVC.user = _User
@@ -74,7 +74,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
-            cell.textLabel?.text = events[indexPath.row]?.name
+            cell.textLabel?.text = events[indexPath.row]?.eventName
             return cell
     }
     

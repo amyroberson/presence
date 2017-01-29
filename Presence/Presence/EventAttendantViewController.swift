@@ -15,7 +15,7 @@ class EventAttendantViewController: UIViewController, UITableViewDelegate, UITab
     var contacts: [User] {
         var _contacts: [User] = []
         if let _event = event{
-            _contacts = _event.contacts
+            _contacts = _event.guests
         }
         return _contacts
     }
@@ -32,6 +32,10 @@ class EventAttendantViewController: UIViewController, UITableViewDelegate, UITab
         tableView.dataSource = self
         tableView.delegate = self
         tableView.reloadData()
+        eventNameLabel.text = event?.eventName
+        eventLocationLabel.text = event?.location
+        eventAddressLabel.text = event?.address
+        eventTimeLabel.text = event?.time.toString()
 
         
     }

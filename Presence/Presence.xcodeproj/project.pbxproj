@@ -37,6 +37,7 @@
 		E1D75C681E3D3E3C005ECB34 /* AcceptRejectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D75C671E3D3E3C005ECB34 /* AcceptRejectViewController.swift */; };
 		E1D75C6A1E3D3E5E005ECB34 /* ReactivateRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D75C691E3D3E5E005ECB34 /* ReactivateRequestViewController.swift */; };
 		E1D75C6C1E3E508E005ECB34 /* RequestStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D75C6B1E3E508E005ECB34 /* RequestStore.swift */; };
+		E1D75C6E1E3E7265005ECB34 /* CheckInPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D75C6D1E3E7265005ECB34 /* CheckInPost.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		E1D75C671E3D3E3C005ECB34 /* AcceptRejectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptRejectViewController.swift; sourceTree = "<group>"; };
 		E1D75C691E3D3E5E005ECB34 /* ReactivateRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactivateRequestViewController.swift; sourceTree = "<group>"; };
 		E1D75C6B1E3E508E005ECB34 /* RequestStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestStore.swift; sourceTree = "<group>"; };
+		E1D75C6D1E3E7265005ECB34 /* CheckInPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInPost.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,25 +146,26 @@
 			isa = PBXGroup;
 			children = (
 				E12927541E3979A4008D443B /* AppDelegate.swift */,
-				E12927561E3979A4008D443B /* RegisterViewController.swift */,
 				E12927A11E3CD5A0008D443B /* LoginViewController.swift */,
+				E12927561E3979A4008D443B /* RegisterViewController.swift */,
 				E129279B1E3C3026008D443B /* ContactViewController.swift */,
 				E129279D1E3C48BF008D443B /* EventsViewController.swift */,
+				E12927A71E3CFA5F008D443B /* EventAttendantViewController.swift */,
+				E12927A51E3CEEBE008D443B /* EventCheckInViewController.swift */,
 				E129279F1E3C4CBE008D443B /* UserContactsViewController.swift */,
 				E12927A31E3CD6E0008D443B /* TabsViewController.swift */,
 				E12927A91E3D0633008D443B /* RequestContactViewController.swift */,
 				E12927AD1E3D16F4008D443B /* RequestsViewController.swift */,
 				E1D75C671E3D3E3C005ECB34 /* AcceptRejectViewController.swift */,
-				E12927A71E3CFA5F008D443B /* EventAttendantViewController.swift */,
 				E1D75C691E3D3E5E005ECB34 /* ReactivateRequestViewController.swift */,
 				E12927AB1E3D1466008D443B /* ProfileViewController.swift */,
-				E12927A51E3CEEBE008D443B /* EventCheckInViewController.swift */,
-				E12927911E3AF119008D443B /* Util.swift */,
 				E12927581E3979A4008D443B /* Main.storyboard */,
 				E12927841E397A5D008D443B /* Model */,
-				E12927951E3AF590008D443B /* UserPostStore.swift */,
+				E12927911E3AF119008D443B /* Util.swift */,
 				E12927931E3AF296008D443B /* APIURL.swift */,
+				E12927951E3AF590008D443B /* UserPostStore.swift */,
 				E1D75C6B1E3E508E005ECB34 /* RequestStore.swift */,
+				E1D75C6D1E3E7265005ECB34 /* CheckInPost.swift */,
 				E129278F1E3AD7B5008D443B /* EventStore.swift */,
 				E129275B1E3979A4008D443B /* Assets.xcassets */,
 				E129275D1E3979A4008D443B /* LaunchScreen.storyboard */,
@@ -346,6 +349,7 @@
 				E12927571E3979A4008D443B /* RegisterViewController.swift in Sources */,
 				E12927A01E3C4CBE008D443B /* UserContactsViewController.swift in Sources */,
 				E12927A81E3CFA5F008D443B /* EventAttendantViewController.swift in Sources */,
+				E1D75C6E1E3E7265005ECB34 /* CheckInPost.swift in Sources */,
 				E12927AC1E3D1466008D443B /* ProfileViewController.swift in Sources */,
 				E12927881E397ABB008D443B /* Request.swift in Sources */,
 				E1D75C6A1E3D3E5E005ECB34 /* ReactivateRequestViewController.swift in Sources */,

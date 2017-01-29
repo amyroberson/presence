@@ -25,6 +25,8 @@ struct APIURL {
         case addUser
         case getEvents
         case getUser
+        case checkIn
+        case login
         
         
         var pathComponents: String {
@@ -35,6 +37,10 @@ struct APIURL {
                 return "get_events.json"
             case .getUser:
                 return "get_user.json"
+            case .checkIn:
+                return "check_in_event.json"
+            case .login:
+                return "login_user.json"
             }
         }
         
@@ -44,7 +50,7 @@ struct APIURL {
                 return "POST"
             case .getEvents:
                 return "GET"
-            case .getUser:
+            case .getUser, .checkIn, .login:
                 return "POST"
             }
         }

@@ -13,6 +13,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var failedLabel: UILabel!
+    var user: User? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +39,36 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        //set up post endpoint
+        if passwordTextField.text! != "" || emailTextField.text! != ""{
+            let dictionary: [String: Any] = [
+                "email" : emailTextField.text!,
+                "password" : passwordTextField.text!
+            ]
+            do {
+                let data = try Util.toJson(dictionary: dictionary)
+                UserPostStore(endpoint: .login).postUserLogin(json: data, completion: {
+                        result in
+                    //probably need to set up a week self
+                    switch result{
+                    case .success(let data):
+                        if let _data = data as? User{
+                            self.user = _data
+                        }
+                    case .failure(let resource):
+                        print(resource)
+                    default:
+                        break
+                    }
+                })
+            } catch {
+                print("json error")
+            }
         let storyBoard = UIStoryboard(name: "Main", bundle: .main)
         let tabVC = storyBoard.instantiateViewController(withIdentifier: "TabsMenu") as! TabsViewController
-        //when endpoint is set up pass returned user to tabVC
         self.show(tabVC, sender: nil)
-        
+        } else {
+            failedLabel.isHidden = false
+        }
     //if false  show failed label
         
         

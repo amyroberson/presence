@@ -9,7 +9,6 @@
 import Foundation
 
 
-import Foundation
 
 
 internal final class EventStore {
@@ -17,6 +16,8 @@ internal final class EventStore {
     fileprivate let session: URLSession = {
         return URLSession(configuration: .default)
     }()
+    
+    
     
     internal func fetchEvents(completion: @escaping (ResourceResult<[Event]>) -> ()) {
         let task = session.dataTask(with: APIURL().fullURL(endPoint: .getEvents)) {
@@ -34,6 +35,7 @@ internal final class EventStore {
         }
         task.resume()
     }
+    
     
     
 }

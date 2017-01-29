@@ -20,8 +20,8 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
     var user: User? = nil
     @IBOutlet weak var tableView: UITableView!
     var getRequests: [Request] = []
-    let section: [String] = ["Received Requests:", "Expired Requests:"]
-    var requests: [[Request]] = [[],[]]// first array will be recieved requests, second array will be sent expired requests
+    let section: [String] = ["Received Requests:", "Send Requests", "Expired Requests:"]
+    var requests: [[Request]] = [[],[], []]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +47,8 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
             if request.toUser == user{
                 requests[0].append(request)
             } else if request.isActive == false{
+                requests[2].append(request)
+            } else {
                 requests[1].append(request)
             }
         }
@@ -54,7 +56,7 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -66,7 +68,7 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
             acceptRejectVC.request = requests[indexPath.section][indexPath.row]
             self.show(acceptRejectVC, sender: nil)
             
-        } else {
+        } else if indexPath.section == 2{
             let storyBoard = UIStoryboard(name: "Main", bundle: .main)
             let reactivateVC = storyBoard.instantiateViewController(withIdentifier: "Reactivate") as! ReactivateRequestViewController
                 reactivateVC.contact = requests[indexPath.section][indexPath.row].toUser
@@ -86,20 +88,21 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
         
         if indexPath.section == 0{
             cell.textLabel?.text = request.fromUser.fullName
+        } else if indexPath.section == 1{
+            cell.textLabel?.text = request.toUser.fullName
         } else {
             cell.textLabel?.text = request.toUser.fullName
-
         }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return self.section[section]
-        } else {
-            return self.section[section]
-        }
+        return self.section[section]
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
 
 }

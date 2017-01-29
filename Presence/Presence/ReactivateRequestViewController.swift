@@ -23,7 +23,12 @@ class ReactivateRequestViewController: UIViewController {
     }
     
     @IBAction func reactivateButtonPressed(_ sender: UIButton) {
-        //dismiss view or grey out button and show a label"reactivated!"
+        //send post request to reactivate
+        let arrayCount: Int = Int((navigationController?.viewControllers.count)!)
+        if arrayCount >= 2 {
+            let uiVC: UIViewController = (navigationController?.viewControllers[arrayCount - 2])!
+            let _ = self.navigationController?.popToViewController(uiVC, animated: true)
+        }
     }
 
 }

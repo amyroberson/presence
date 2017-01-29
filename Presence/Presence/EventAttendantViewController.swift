@@ -33,14 +33,13 @@ class EventAttendantViewController: UIViewController, UITableViewDelegate, UITab
         tableView.delegate = self
         tableView.reloadData()
 
-        // Do any additional setup after loading the view.
+        
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AttendantCell", for: indexPath)
-        cell.textLabel?.text = "\(contacts[indexPath.row].firstName) \(contacts[indexPath.row].lastName)"
-        //set only if show image == true
-        //cell.imageView?.image = contacts[indexPath.row].image
+        cell.textLabel?.text = contacts[indexPath.row].fullName
+        
         return cell
     }
     

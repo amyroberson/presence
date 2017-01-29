@@ -12,8 +12,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var failedLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        failedLabel.isHidden = true
         passwordTextField.delegate = self
         emailTextField.delegate = self
     }
@@ -40,6 +43,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let tabVC = storyBoard.instantiateViewController(withIdentifier: "TabsMenu") as! TabsViewController
         //when endpoint is set up pass returned user to tabVC
         self.show(tabVC, sender: nil)
+        
+    //if false  show failed label
         
         
     }

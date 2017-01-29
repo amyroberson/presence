@@ -18,7 +18,11 @@ class RequestContactViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         contactNameLabel.text = contact?.fullName
+        if contact?.showImage == false{
+            contactImage.isHidden = true
+        } else {
         contactImage.image = contact?.image
+        }
     }
 
     

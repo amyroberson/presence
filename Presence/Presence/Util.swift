@@ -74,7 +74,7 @@ struct Util {
             dateFormatter?.dateStyle = .long
             dateFormatter?.timeStyle = .long
             dateFormatter?.locale = Locale(identifier: "en_US_POSIX")
-            dateFormatter?.dateFormat = "MM-dd-yyyy"
+            dateFormatter?.dateFormat = "MM-dd-yyyy hh:mm"
             dateFormatter?.timeZone = TimeZone(secondsFromGMT: 0)
         }
         

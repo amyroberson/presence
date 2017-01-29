@@ -26,9 +26,21 @@ class AcceptRejectViewController: UIViewController {
    
 
     @IBAction func acceptButtonTapped(_ sender: UIButton) {
-        //dismiss view
+        //send post request
+        //let arrayCount: Int = Int((navigationController?.viewControllers.count)!)
+        let arrayCount: Int = Int((navigationController?.viewControllers.count)!)
+        if arrayCount >= 2 {
+            let uiVC: UIViewController = (navigationController?.viewControllers[arrayCount - 2])!
+            let _ = self.navigationController?.popToViewController(uiVC, animated: true)
+        }
     }
     @IBAction func rejectButtonTapped(_ sender: UIButton) {
         //dismiss view
+        
+        let arrayCount: Int = Int((navigationController?.viewControllers.count)!)
+        if arrayCount >= 2 {
+            let uiVC: UIViewController = (navigationController?.viewControllers[arrayCount - 2])!
+            let _ = self.navigationController?.popToViewController(uiVC, animated: true)
+        }
     }
 }

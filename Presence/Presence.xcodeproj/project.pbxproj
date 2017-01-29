@@ -36,6 +36,7 @@
 		E12927AE1E3D16F4008D443B /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12927AD1E3D16F4008D443B /* RequestsViewController.swift */; };
 		E1D75C681E3D3E3C005ECB34 /* AcceptRejectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D75C671E3D3E3C005ECB34 /* AcceptRejectViewController.swift */; };
 		E1D75C6A1E3D3E5E005ECB34 /* ReactivateRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D75C691E3D3E5E005ECB34 /* ReactivateRequestViewController.swift */; };
+		E1D75C6C1E3E508E005ECB34 /* RequestStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D75C6B1E3E508E005ECB34 /* RequestStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		E12927AD1E3D16F4008D443B /* RequestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
 		E1D75C671E3D3E3C005ECB34 /* AcceptRejectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptRejectViewController.swift; sourceTree = "<group>"; };
 		E1D75C691E3D3E5E005ECB34 /* ReactivateRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactivateRequestViewController.swift; sourceTree = "<group>"; };
+		E1D75C6B1E3E508E005ECB34 /* RequestStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				E12927841E397A5D008D443B /* Model */,
 				E12927951E3AF590008D443B /* UserPostStore.swift */,
 				E12927931E3AF296008D443B /* APIURL.swift */,
+				E1D75C6B1E3E508E005ECB34 /* RequestStore.swift */,
 				E129278F1E3AD7B5008D443B /* EventStore.swift */,
 				E129275B1E3979A4008D443B /* Assets.xcassets */,
 				E129275D1E3979A4008D443B /* LaunchScreen.storyboard */,
@@ -357,6 +360,7 @@
 				E12927831E397A58008D443B /* User.swift in Sources */,
 				E12927A21E3CD5A0008D443B /* LoginViewController.swift in Sources */,
 				E129279C1E3C3026008D443B /* ContactViewController.swift in Sources */,
+				E1D75C6C1E3E508E005ECB34 /* RequestStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

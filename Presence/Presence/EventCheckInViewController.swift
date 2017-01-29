@@ -30,6 +30,11 @@ class EventCheckInViewController: UIViewController {
     @IBAction func eventCheckInButtonPressed(_ sender: UIButton) {
         //calls enpoint to add user to event
         //sends user to event attendents page
+        let storyBoard = UIStoryboard(name: "Main", bundle: .main)
+        let eventContactVC = storyBoard.instantiateViewController(withIdentifier: "EventAttendants") as! EventAttendantViewController
+        eventContactVC.event = event
+        eventContactVC.user = user
+        self.show(eventContactVC, sender: nil)
     }
 
 }

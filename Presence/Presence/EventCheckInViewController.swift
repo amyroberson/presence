@@ -16,7 +16,11 @@ class EventCheckInViewController: UIViewController {
     
     var event: Event? = nil
     var user: User? = nil
-    var success: Bool = false
+    var success: Bool = false{
+        didSet{
+            successfulCheckIn()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,24 +29,21 @@ class EventCheckInViewController: UIViewController {
         eventTimeLabel.text = event?.time.toString()
         eventAddressLabel.text = event?.address
         
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func eventCheckInButtonPressed(_ sender: UIButton) {
-        //calls enpoint to add user to event
-        //sends user to event attendents page
         let dictionary: [String: Any] = [
             "email": user?.email ?? "",
             "eventName": event?.eventName ?? ""
         ]
         do {
             let data = try Util.toJson(dictionary: dictionary)
+            weak var weakSelf = self
             CheckInPost().pushPostCheckIn(json: data, completion:
-                //need to set week self probably
                 { result in
                     switch result {
                     case .success:
-                        self.success = true
+                        weakSelf?.success = true
                     case .failure( let resource):
                         print(resource)
                     default:
@@ -52,11 +53,15 @@ class EventCheckInViewController: UIViewController {
         } catch {
             print("to Json Error")
         }
-        if success {
+    }
+    
+    func successfulCheckIn(){
+        
+        DispatchQueue.main.async {
             let storyBoard = UIStoryboard(name: "Main", bundle: .main)
             let eventContactVC = storyBoard.instantiateViewController(withIdentifier: "EventAttendants") as! EventAttendantViewController
             eventContactVC.event = self.event
-            eventContactVC.user = user
+            eventContactVC.user = self.user
             self.show(eventContactVC, sender: nil)
         }
     }

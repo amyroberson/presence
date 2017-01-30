@@ -9,7 +9,7 @@
 import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var failedLabel: UILabel!
@@ -46,13 +46,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             ]
             do {
                 let data = try Util.toJson(dictionary: dictionary)
+                weak var weakSelf = self
                 UserPostStore(endpoint: .login).postUserLogin(json: data, completion: {
-                        result in
-                    //probably need to set up a week self
+                    result in
                     switch result{
                     case .success(let data):
                         if let _data = data as? User{
-                            self.user = _data
+                            weakSelf?.user = _data
                         }
                     case .failure(let resource):
                         print(resource)
@@ -63,13 +63,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             } catch {
                 print("json error")
             }
-        let storyBoard = UIStoryboard(name: "Main", bundle: .main)
-        let tabVC = storyBoard.instantiateViewController(withIdentifier: "TabsMenu") as! TabsViewController
-        self.show(tabVC, sender: nil)
+            let storyBoard = UIStoryboard(name: "Main", bundle: .main)
+            let tabVC = storyBoard.instantiateViewController(withIdentifier: "TabsMenu") as! TabsViewController
+            self.show(tabVC, sender: nil)
         } else {
             failedLabel.isHidden = false
         }
-    //if false  show failed label
         
         
     }
@@ -78,5 +77,5 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let registerVC = storyBoard.instantiateViewController(withIdentifier: "Register") as! RegisterViewController
         self.show(registerVC, sender: nil)
     }
-
+    
 }

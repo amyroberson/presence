@@ -35,17 +35,17 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         events = [Event(data: dictionary)!]
         self.title = "Events"
         /*let _ = EventStore().fetchEvents(completion: { result in
-            switch result{
-            case .success(let eventArray):
-                self.events = eventArray
-            default:
-                print("there was an error")}
-        })*/
+         switch result{
+         case .success(let eventArray):
+         self.events = eventArray
+         default:
+         print("there was an error")}
+         })*/
         
         tableView.delegate = self
         tableView.dataSource = self
     }
-
+    
     func tableView(_ sender: UITableView, numberOfRowsInSection: Int) -> Int{
         return events.count
     }
@@ -53,20 +53,20 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let event = events[indexPath.row]
         if let _User = user{
-        if (event?.guests.contains(_User))! {
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let eventAttendantsVC = storyBoard.instantiateViewController(withIdentifier: "EventAttendants") as! EventAttendantViewController
-            eventAttendantsVC.user = _User
-            eventAttendantsVC.event = event
-            self.show(eventAttendantsVC, sender: nil)
-            
-        } else {
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let checkInVC = storyBoard.instantiateViewController(withIdentifier: "CheckIn") as! EventCheckInViewController
-            checkInVC.user = self.user
-            checkInVC.event = event
-            self.show(checkInVC, sender: nil)
-            
+            if (event?.guests.contains(_User))! {
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let eventAttendantsVC = storyBoard.instantiateViewController(withIdentifier: "EventAttendants") as! EventAttendantViewController
+                eventAttendantsVC.user = _User
+                eventAttendantsVC.event = event
+                self.show(eventAttendantsVC, sender: nil)
+                
+            } else {
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let checkInVC = storyBoard.instantiateViewController(withIdentifier: "CheckIn") as! EventCheckInViewController
+                checkInVC.user = self.user
+                checkInVC.event = event
+                self.show(checkInVC, sender: nil)
+                
             }
         }
     }
@@ -74,15 +74,15 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
-            cell.textLabel?.text = events[indexPath.row]?.eventName
-            return cell
+        cell.textLabel?.text = events[indexPath.row]?.eventName
+        return cell
     }
     
     func refresh(){
         guard Thread.current.isMainThread else {
-    
-        self.perform(#selector(refresh), on: Thread.main, with: nil, waitUntilDone: false)
-        return
+            
+            self.perform(#selector(refresh), on: Thread.main, with: nil, waitUntilDone: false)
+            return
         }
         self.tableView.reloadData()
     }

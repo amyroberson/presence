@@ -9,7 +9,7 @@
 import UIKit
 
 class EventAttendantViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     var user: User? = nil
     var event: Event? = nil
     var contacts: [User] {
@@ -36,10 +36,10 @@ class EventAttendantViewController: UIViewController, UITableViewDelegate, UITab
         eventLocationLabel.text = event?.location
         eventAddressLabel.text = event?.address
         eventTimeLabel.text = event?.time.toString()
-
+        
         
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AttendantCell", for: indexPath)
         cell.textLabel?.text = contacts[indexPath.row].fullName
@@ -53,10 +53,13 @@ class EventAttendantViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let contact = contacts[indexPath.row]
-        // if contact.contacts.contains.user, send to contactViewController
-        //else send to requestViewController
+        let storyBoard = UIStoryboard(name: "Main", bundle: .main)
+        let requestVC = storyBoard.instantiateViewController(withIdentifier: "RequestContact") as! RequestContactViewController
+        requestVC.user = user
+        requestVC.contact = contact
+        self.show(requestVC, sender: nil)
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contacts.count
     }

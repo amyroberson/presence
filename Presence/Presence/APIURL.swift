@@ -27,6 +27,9 @@ struct APIURL {
         case getUser
         case checkIn
         case login
+        case createRequest
+        case getContactsForUser
+        case getRequests
         
         
         var pathComponents: String {
@@ -41,17 +44,12 @@ struct APIURL {
                 return "check_in_event.json"
             case .login:
                 return "login_user.json"
-            }
-        }
-        
-        var httpMethod: String {
-            switch self{
-            case .addUser:
-                return "POST"
-            case .getEvents:
-                return "GET"
-            case .getUser, .checkIn, .login:
-                return "POST"
+            case .createRequest:
+                return "create_request.json"
+            case .getContactsForUser:
+                return "get_contacts_for_user.json"
+            case .getRequests:
+                return "get_requests_fromuser.json"
             }
         }
     }

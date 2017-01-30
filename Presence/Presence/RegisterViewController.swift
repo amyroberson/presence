@@ -38,35 +38,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
         emailTextField.delegate = self
         passwordTextField.delegate = self
         moreInfoLabel.isHidden = true
-        
-        
-        
-        /* let user = User(firstName: "Bob", lastName: "Smith", company: "IronYard", position: "Teacher", email: "me@IronYard.com", password: "password", showImage: false, image: UIImage(named: "synthwave")!)
-         let dictionary = user.toDictionary()
-         do {
-         let data = try Util.toJson(dictionary: dictionary)
-         UserPostStore().pushPost(json: data, completion: { result in
-         switch result{
-         case .success(let data):
-         print(data)
-         case .failure(let resource):
-         print(resource)
-         }
-         
-         })
-         } catch {
-         print("toJson Error")
-         }
-         
-         let _ = UserPostStore().fetchUsers(completion: { result in
-         switch result{
-         case .success(let users):
-         (users)
-         
-         default:
-         print("there was an error")}
-         })
-         */
     }
     
     @IBAction func selectPhotoButtonPressed(_ sender: UIButton) {
@@ -90,17 +61,14 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
             return false
         } else {
             textField.resignFirstResponder()
-            
             return true
         }
-        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let original = info[UIImagePickerControllerOriginalImage] as? UIImage {
             image = original
         }
-        
         refresh()
         dismiss(animated: true, completion:nil)
     }
@@ -109,7 +77,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
         if firstNameTextField.text! != "" || lastNameTextField.text! != "" ||
             companyTextField.text! != "" || positionTextField.text! != "" || emailTextField.text! != "" ||
             passwordTextField.text! != "" {
-        
+            
             if let firstname = firstNameTextField.text,
                 let lastName = lastNameTextField.text,
                 let company  = companyTextField.text,
@@ -143,7 +111,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
                     print("toJson Error")
                 }
                 
-                
                 let storyboard = UIStoryboard(name: "Main", bundle: .main)
                 let tabsVC = storyboard.instantiateViewController(withIdentifier: "TabsMenu") as! TabsViewController
                 tabsVC.user = user
@@ -152,10 +119,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
         } else {
             moreInfoLabel.isHidden = false
         }
-        
     }
-    
-    
     
     func refresh(){
         userImage.image = image

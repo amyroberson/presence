@@ -10,12 +10,6 @@ import UIKit
 
 class RequestsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let paul = User(firstName: "Unwrap Issue", lastName: "Judge", company: "PinDrop", position: "CTO", email: "Paul@Pin.com", password: "notThis", showImage: true, image: UIImage(named: "synthwave")!)
-    let kevin = User(firstName: "Kevin", lastName: "Judge", company: "Drop", position: "CEO", email: "Paul@Pin.com", password: "notThis", showImage: true, image: UIImage(named: "synthwave")!)
-    let alli    = User(firstName: "Alli", lastName: "Judge", company: "Drop", position: "CEO", email: "Paul@Pin.com", password: "notThis", showImage: true, image: UIImage(named: "synthwave")!)
-    
-    
-    
 
     var user: User? = nil
     @IBOutlet weak var tableView: UITableView!
@@ -25,23 +19,29 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let dictionary: [String : Any] = [
-            "toUser" : user ?? paul,
-            "fromUser" : kevin,
-            "isActive" : true
-        ]
+        let dictionary: [String : Any] = [:]
         
-        let dictionary1: [String : Any] = [
-            "toUser" : alli,
-            "fromUser" : user ?? paul,
-            "isActive" : false
-        ]
+        do{
+            let data = try Util.toJson(dictionary: dictionary)
+            RequestStore(endpoint: .getRequests).fetchRequestsForUser(json: data, completion: { result in
+                switch result{
+                case .success(let requests):
+                    self.getRequests = requests
+                case .failure(let resource):
+                    print(resource)
+                default:
+                    break
+                }
+            })
+        } catch {
+             print("toJson Error")
+        }
+        
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.reloadData()
         
-        getRequests.append(Request(data: dictionary)!)
-        getRequests.append(Request(data: dictionary1)!)
         
         for request in getRequests{
             if request.toUser == user{
@@ -63,8 +63,7 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
         if indexPath.section == 0{
             let storyBoard = UIStoryboard(name: "Main", bundle: .main)
             let acceptRejectVC = storyBoard.instantiateViewController(withIdentifier: "AcceptReject") as! AcceptRejectViewController
-            //set user and contact 
-            acceptRejectVC.contact = requests[indexPath.section][indexPath.row].fromUser
+                        acceptRejectVC.contact = requests[indexPath.section][indexPath.row].fromUser
             acceptRejectVC.request = requests[indexPath.section][indexPath.row]
             self.show(acceptRejectVC, sender: nil)
             

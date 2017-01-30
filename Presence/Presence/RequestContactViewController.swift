@@ -12,6 +12,7 @@ class RequestContactViewController: UIViewController {
 
     var user: User? = nil
     var contact: User? = nil
+    var success: Bool = false
     @IBOutlet weak var contactImage: UIImageView!
     
     @IBOutlet weak var contactNameLabel: UILabel!
@@ -27,8 +28,34 @@ class RequestContactViewController: UIViewController {
 
     
     @IBAction func requestButtonPressed(_ sender: UIButton) {
-        //sends request post with contact and user
-        //create request
+        let  dictionary: [String: Any] = [:]
+        
+        do{
+            let data = try Util.toJson(dictionary: dictionary)
+            RequestStore(endpoint: .createRequest).postCreateRequest(json: data, completion: { result in
+                switch result {
+                case .success:
+                    self.success = true
+                case .failure( let resource):
+                    print(resource)
+                default:
+                    print("unexpected data returned")
+                }
+            })
+        } catch {
+            print("to Json Error")
+        }
+        
+        if success {
+            let arrayCount: Int = Int((navigationController?.viewControllers.count)!)
+            if arrayCount >= 2 {
+                let uiVC: UIViewController = (navigationController?.viewControllers[arrayCount - 2])!
+                let _ = self.navigationController?.popToViewController(uiVC, animated: true)
+            }
+        } else {
+            print("error creating a request")
+        }
+        
     }
 
 }

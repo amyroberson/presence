@@ -18,13 +18,12 @@ internal final class RequestStore {
     
     init(endpoint: APIURL.EndPoint){
         request = URLRequest(url: APIURL().fullURL(endPoint: endpoint))
-        request.httpMethod = "POST"
         request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
-        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         self.endpoint = endpoint
     }
-
-    internal func fetchRequestsForUser(completion: @escaping (ResourceResult<[Request]>) -> ()) {
+    
+    internal func fetchRequestsForUser(json: Data, completion: @escaping (ResourceResult<[Request]>) -> ()) {
+        request.httpMethod = "POST"
         let task = session.dataTask(with: APIURL().fullURL(endPoint: endpoint)) {
             (optionalData, optionalResponse, optionalError) in
             
@@ -48,5 +47,26 @@ internal final class RequestStore {
     
     //func postReactivateRequest()
     
-    //func postCreateRequest()
+    func postCreateRequest(json: Data, completion: @escaping (ResourceResult<Any>) -> ()) {
+        request.httpBody = json
+        request.httpMethod = "POST"
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        let task = session.dataTask(with: request) {(optionData, optionalResponse, optionalError) in
+            if let response = optionalResponse {
+                if let _response = response as? HTTPURLResponse{
+                    if _response.statusCode == 200{
+                        completion(.success(true))
+                    } else {
+                        let error = Resource.http(response as! HTTPURLResponse)
+                        completion(ResourceResult.failure(error))
+                    }
+                } else {
+                    completion(.failure(.system(optionalError!)))
+                }
+                
+            }
+        }
+        task.resume()
+    }
+    
 }

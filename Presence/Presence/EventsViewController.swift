@@ -33,14 +33,18 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             "guests" : [User(firstName: "Paul", lastName: "Judge", company: "PinDrop", position: "CTO", email: "Paul@Pin.com", password: "notThis", showImage: true, image: UIImage(named: "synthwave")!)]
         ]*/
         //events = [Event(data: dictionary)!]
+        tableView.separatorStyle = .none
         self.title = "Events"
-        let _ = EventStore(endpoint: .getEvents).fetchEvents(completion: { result in
+        let _ = EventStore(endpoint: .getEvents).fetchEvents(completion: {
+            result in
+            OperationQueue.main.addOperation {
+            
          switch result{
          case .success(let eventArray):
             self.events = eventArray
          default:
             print("there was an error")}
-         })
+            }})
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -73,8 +77,9 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
-        cell.textLabel?.text = events[indexPath.row]?.eventName
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell",  for: indexPath) as! EventCell
+    
+        cell.eventNameLabel?.text = events[indexPath.row]?.eventName
         return cell
     }
     

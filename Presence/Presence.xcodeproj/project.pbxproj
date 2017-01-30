@@ -38,6 +38,10 @@
 		E1D75C6A1E3D3E5E005ECB34 /* ReactivateRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D75C691E3D3E5E005ECB34 /* ReactivateRequestViewController.swift */; };
 		E1D75C6C1E3E508E005ECB34 /* RequestStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D75C6B1E3E508E005ECB34 /* RequestStore.swift */; };
 		E1D75C6E1E3E7265005ECB34 /* CheckInPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D75C6D1E3E7265005ECB34 /* CheckInPost.swift */; };
+		E1D75C721E3FC66F005ECB34 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D75C711E3FC66F005ECB34 /* EventCell.swift */; };
+		E1D75C741E3FE9FD005ECB34 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D75C731E3FE9FD005ECB34 /* ContactCell.swift */; };
+		E1D75C761E3FEECE005ECB34 /* RequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D75C751E3FEECE005ECB34 /* RequestCell.swift */; };
+		E1D75C781E3FF093005ECB34 /* AttendentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D75C771E3FF093005ECB34 /* AttendentCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +99,10 @@
 		E1D75C691E3D3E5E005ECB34 /* ReactivateRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactivateRequestViewController.swift; sourceTree = "<group>"; };
 		E1D75C6B1E3E508E005ECB34 /* RequestStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestStore.swift; sourceTree = "<group>"; };
 		E1D75C6D1E3E7265005ECB34 /* CheckInPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInPost.swift; sourceTree = "<group>"; };
+		E1D75C711E3FC66F005ECB34 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		E1D75C731E3FE9FD005ECB34 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		E1D75C751E3FEECE005ECB34 /* RequestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestCell.swift; sourceTree = "<group>"; };
+		E1D75C771E3FF093005ECB34 /* AttendentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendentCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +159,11 @@
 				E129279D1E3C48BF008D443B /* EventsViewController.swift */,
 				E129279F1E3C4CBE008D443B /* UserContactsViewController.swift */,
 				E129279B1E3C3026008D443B /* ContactViewController.swift */,
+				E1D75C711E3FC66F005ECB34 /* EventCell.swift */,
 				E12927A71E3CFA5F008D443B /* EventAttendantViewController.swift */,
+				E1D75C751E3FEECE005ECB34 /* RequestCell.swift */,
+				E1D75C731E3FE9FD005ECB34 /* ContactCell.swift */,
+				E1D75C771E3FF093005ECB34 /* AttendentCell.swift */,
 				E12927A51E3CEEBE008D443B /* EventCheckInViewController.swift */,
 				E12927A31E3CD6E0008D443B /* TabsViewController.swift */,
 				E12927A91E3D0633008D443B /* RequestContactViewController.swift */,
@@ -349,6 +361,7 @@
 				E12927861E397A9D008D443B /* Events.swift in Sources */,
 				E1D75C681E3D3E3C005ECB34 /* AcceptRejectViewController.swift in Sources */,
 				E12927941E3AF296008D443B /* APIURL.swift in Sources */,
+				E1D75C721E3FC66F005ECB34 /* EventCell.swift in Sources */,
 				E12927571E3979A4008D443B /* RegisterViewController.swift in Sources */,
 				E12927A01E3C4CBE008D443B /* UserContactsViewController.swift in Sources */,
 				E12927A81E3CFA5F008D443B /* EventAttendantViewController.swift in Sources */,
@@ -359,15 +372,18 @@
 				E12927921E3AF119008D443B /* Util.swift in Sources */,
 				E12927AA1E3D0633008D443B /* RequestContactViewController.swift in Sources */,
 				E12927901E3AD7B5008D443B /* EventStore.swift in Sources */,
+				E1D75C741E3FE9FD005ECB34 /* ContactCell.swift in Sources */,
 				E12927A41E3CD6E0008D443B /* TabsViewController.swift in Sources */,
 				E12927551E3979A4008D443B /* AppDelegate.swift in Sources */,
 				E12927961E3AF590008D443B /* UserPostStore.swift in Sources */,
+				E1D75C781E3FF093005ECB34 /* AttendentCell.swift in Sources */,
 				E12927A61E3CEEBE008D443B /* EventCheckInViewController.swift in Sources */,
 				E12927AE1E3D16F4008D443B /* RequestsViewController.swift in Sources */,
 				E12927831E397A58008D443B /* User.swift in Sources */,
 				E12927A21E3CD5A0008D443B /* LoginViewController.swift in Sources */,
 				E129279C1E3C3026008D443B /* ContactViewController.swift in Sources */,
 				E1D75C6C1E3E508E005ECB34 /* RequestStore.swift in Sources */,
+				E1D75C761E3FEECE005ECB34 /* RequestCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

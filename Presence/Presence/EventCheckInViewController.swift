@@ -33,7 +33,7 @@ class EventCheckInViewController: UIViewController {
     
     @IBAction func eventCheckInButtonPressed(_ sender: UIButton) {
         let dictionary: [String: Any] = [
-            "email": user?.email ?? "",
+            "guestEmail": user?.email ?? "",
             "eventName": event?.eventName ?? ""
         ]
         do {
@@ -42,8 +42,9 @@ class EventCheckInViewController: UIViewController {
             CheckInPost().pushPostCheckIn(json: data, completion:
                 { result in
                     switch result {
-                    case .success:
-                        weakSelf?.success = true
+                    case .success(let event):
+                        weakSelf?.event = event
+                        weakSelf?.successfulCheckIn()
                     case .failure( let resource):
                         print(resource)
                     default:

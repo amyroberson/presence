@@ -81,16 +81,16 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RequestCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RequestCell", for: indexPath) as! RequestCell
         
         let request = self.requests[indexPath.section][indexPath.row]
         
         if indexPath.section == 0{
-            cell.textLabel?.text = request.fromUser.fullName
+            cell.userLabel?.text = request.fromUser.fullName
         } else if indexPath.section == 1{
-            cell.textLabel?.text = request.toUser.fullName
+            cell.userLabel?.text = request.toUser.fullName
         } else {
-            cell.textLabel?.text = request.toUser.fullName
+            cell.userLabel?.text = request.toUser.fullName
         }
         
         return cell

@@ -21,8 +21,10 @@ class Event {
             let location = data["location"] as? String,
             let address = data["address"] as? String,
             let time = data["time"] as? TimeInterval,
-            let contacts = data["guests"] as? [User]
+        let contacts = data["guests"] as? [[String: Any]]
+        
         else {return nil }
+        let guests = contacts.flatMap {( User(dictionary: $0))}
         let x = Date(timeIntervalSince1970: time / 1000)
         let parts = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: x)
         let theDate = Calendar.current.date(from: parts)
@@ -31,7 +33,7 @@ class Event {
             self.location = location
             self.time = date
             self.address = address
-            self.guests = contacts
+            self.guests = guests
         } else {
             return nil
         }
@@ -45,7 +47,7 @@ class Event {
             "location" : self.location,
             "time" : self.time.timeIntervalSince1970 * 1000,
             "address" : self.address,
-            "contacts" : self.guests.map { $0.toDictionary }
+            "guests" : self.guests.map { $0.toDictionary }
         ]
         return dictionary
     }

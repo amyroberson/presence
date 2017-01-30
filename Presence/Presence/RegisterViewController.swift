@@ -10,7 +10,7 @@ import UIKit
 
 class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var image: UIImage? = UIImage(named: "synthwave"){
+    var image: UIImage? = UIImage(named: "AmitJakhu"){
         didSet{
             refresh()
         }
@@ -91,7 +91,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
                 } else {
                     showImage = true
                 }
-                var user = User(firstName: firstname, lastName: lastName, company: company, position: position, email: email, password: password, showImage: showImage, image: image)
+                var user = User(firstName: firstname, lastName: lastName, company: company, position: position, email: email, password: password, showImage: showImage, image: nil)
                 let dictionary = user.toDictionary()
                 do {
                     let data = try Util.toJson(dictionary: dictionary)
@@ -100,6 +100,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
                         case .success(let data):
                             if let _data = data as? User{
                                 user = _data
+                                print("registration worked")
                             }
                         case .failure(let resource):
                             print(resource)
@@ -113,6 +114,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: .main)
                 let tabsVC = storyboard.instantiateViewController(withIdentifier: "TabsMenu") as! TabsViewController
+                user.password = ""
                 tabsVC.user = user
                 self.present(tabsVC, animated: true, completion: nil)
             }
@@ -120,6 +122,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
             moreInfoLabel.isHidden = false
         }
     }
+    
     
     func refresh(){
         userImage.image = image

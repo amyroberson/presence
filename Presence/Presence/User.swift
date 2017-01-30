@@ -15,9 +15,9 @@ class User : Equatable{
     let company: String
     let position: String
     let email: String
-    let password: String
+    var password: String
     let showImage: Bool
-    let image: UIImage
+    let image: UIImage?
     
     var fullName: String {
         return "\(firstName) \(lastName)"
@@ -30,10 +30,10 @@ class User : Equatable{
             let position = dictionary["position"] as? String,
             let email = dictionary["email"] as? String,
             let password = dictionary["password"] as? String,
-            let showImage = dictionary["showImage"] as? Bool,
-            let image = dictionary["image"] as? String else{return nil}
-        if let imageData = Data(base64Encoded: image){
-            guard let picture = UIImage(data: imageData)  else  {return nil}
+            let showImage = dictionary["showImage"] as? Bool else{return nil}
+            //let image = dictionary["image"] as? String? else{return nil}
+       /// let imageData = Data(base64Encoded: image)?{
+          //  let picture = UIImage(data: imageData)?  //else  {return nil}
         
             self.firstName = first
             self.lastName = last
@@ -42,19 +42,20 @@ class User : Equatable{
             self.email = email
             self.password = password
             self.showImage = showImage
-            self.image = picture
-        } else {
-            return nil
-        }
+            self.image = nil
+       
+    //}else {
+    //return nil
 
-        
+
+    
     }
     
     
     //need to add image functionality
-    convenience init(firstName: String, lastName: String, company: String, position: String, email: String, password: String, showImage: Bool, image: UIImage){
-       let imageData = UIImageJPEGRepresentation(image, 1.0)
-        let dictionary : [String: Any] = [
+    convenience init(firstName: String, lastName: String, company: String, position: String, email: String, password: String, showImage: Bool, image: UIImage?){
+       //let imageData = UIImageJPEGRepresentation(image, 1.0)
+        let dictionary : [String: Any?] = [
             "firstName" : firstName,
             "lastName" : lastName,
             "company" : company,
@@ -62,15 +63,15 @@ class User : Equatable{
             "email" : email,
             "password" : password,
             "showImage" : showImage,
-            "image": imageData?.base64EncodedString() ?? ""
+            "image":  nil //imageData?.base64EncodedString() ?? ""
             ]
         self.init(dictionary: dictionary)!
     }
    
     //need to add image functionality
     func toDictionary() -> [String: Any]{
-        let imageData = UIImageJPEGRepresentation(self.image, 1.0)
-        let dictionary: [String: Any] = [
+      //  let imageData = UIImageJPEGRepresentation(self.image, 1.0)
+        let dictionary: [String: Any?] = [
             "firstName" : self.firstName,
             "lastName" : self.lastName,
             "company" : self.company,
@@ -78,7 +79,7 @@ class User : Equatable{
             "email" : self.email,
             "password" : self.password,
             "showImage" : self.showImage,
-            "image": imageData?.base64EncodedString() ?? ""
+            "image": nil// imageData?.base64EncodedString() ?? ""
         ]
         return dictionary
     }

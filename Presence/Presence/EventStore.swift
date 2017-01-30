@@ -16,11 +16,18 @@ internal final class EventStore {
     fileprivate let session: URLSession = {
         return URLSession(configuration: .default)
     }()
+    var request : URLRequest
+    var endpoint:APIURL.EndPoint
     
+    init(endpoint: APIURL.EndPoint){
+        request = URLRequest(url: APIURL().fullURL(endPoint: endpoint))
+        self.endpoint = endpoint
+    }
     
     
     internal func fetchEvents(completion: @escaping (ResourceResult<[Event]>) -> ()) {
-        let task = session.dataTask(with: APIURL().fullURL(endPoint: .getEvents)) {
+        request.httpMethod = "GET"
+        let task = session.dataTask(with: APIURL().fullURL(endPoint: endpoint)) {
             (optionalData, optionalResponse, optionalError) in
 
             if let data = optionalData {

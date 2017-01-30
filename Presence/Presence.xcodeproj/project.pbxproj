@@ -148,11 +148,11 @@
 				E12927541E3979A4008D443B /* AppDelegate.swift */,
 				E12927A11E3CD5A0008D443B /* LoginViewController.swift */,
 				E12927561E3979A4008D443B /* RegisterViewController.swift */,
-				E129279B1E3C3026008D443B /* ContactViewController.swift */,
 				E129279D1E3C48BF008D443B /* EventsViewController.swift */,
+				E129279F1E3C4CBE008D443B /* UserContactsViewController.swift */,
+				E129279B1E3C3026008D443B /* ContactViewController.swift */,
 				E12927A71E3CFA5F008D443B /* EventAttendantViewController.swift */,
 				E12927A51E3CEEBE008D443B /* EventCheckInViewController.swift */,
-				E129279F1E3C4CBE008D443B /* UserContactsViewController.swift */,
 				E12927A31E3CD6E0008D443B /* TabsViewController.swift */,
 				E12927A91E3D0633008D443B /* RequestContactViewController.swift */,
 				E12927AD1E3D16F4008D443B /* RequestsViewController.swift */,
@@ -267,6 +267,9 @@
 		E12927491E3979A4008D443B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Amy Roberson";

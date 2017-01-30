@@ -24,23 +24,23 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let theDate = Calendar.current.date(from: parts)
-        let dictionary: [String: Any] = [
+        //let theDate = Calendar.current.date(from: parts)
+       /* let dictionary: [String: Any] = [
             "eventName" : "IronPints",
             "address" : "here",
             "location": "M.Rich Building",
             "time": ( (theDate?.timeIntervalSince1970)! *  1000),
             "guests" : [User(firstName: "Paul", lastName: "Judge", company: "PinDrop", position: "CTO", email: "Paul@Pin.com", password: "notThis", showImage: true, image: UIImage(named: "synthwave")!)]
-        ]
-        events = [Event(data: dictionary)!]
+        ]*/
+        //events = [Event(data: dictionary)!]
         self.title = "Events"
-        /*let _ = EventStore().fetchEvents(completion: { result in
+        let _ = EventStore(endpoint: .getEvents).fetchEvents(completion: { result in
          switch result{
          case .success(let eventArray):
-         self.events = eventArray
+            self.events = eventArray
          default:
-         print("there was an error")}
-         })*/
+            print("there was an error")}
+         })
         
         tableView.delegate = self
         tableView.dataSource = self

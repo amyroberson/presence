@@ -16,10 +16,7 @@ struct APIURL {
         return APIURL.baseURL.appendingPathComponent(endPoint.pathComponents)
     }
     
-    func createRequest(endpoint: EndPoint) -> URLRequest {
-        fatalError()
-    }
-    
+       
     
     enum EndPoint{
         case addUser
@@ -29,7 +26,7 @@ struct APIURL {
         case login
         case createRequest
         case getContactsForUser
-        case getRequests
+        case getRequestsForUser
         
         
         var pathComponents: String {
@@ -45,11 +42,11 @@ struct APIURL {
             case .login:
                 return "login_user.json"
             case .createRequest:
-                return "create_request.json"
+                return "request_contact.json"
             case .getContactsForUser:
                 return "get_contacts_for_user.json"
-            case .getRequests:
-                return "get_requests_fromuser.json"
+            case .getRequestsForUser:
+                return "get_all_requests.json?guestEmailAddress="
             }
         }
     }

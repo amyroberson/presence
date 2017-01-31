@@ -23,7 +23,9 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
         
         do{
             let data = try Util.toJson(dictionary: dictionary)
-            RequestStore(endpoint: .getRequests).fetchRequestsForUser(json: data, completion: { result in
+            let requestStore = RequestStore(endpoint: .getRequestsForUser)
+            
+            requestStore.fetchRequestsForUser(json: data, completion: { result in
                 switch result{
                 case .success(let requests):
                     self.getRequests = requests

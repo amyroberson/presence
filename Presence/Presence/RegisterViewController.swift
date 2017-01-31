@@ -42,7 +42,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
     
     @IBAction func selectPhotoButtonPressed(_ sender: UIButton) {
         let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .camera
+        imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
         present(imagePicker, animated: true, completion: nil)
         refresh()
@@ -91,7 +91,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
                 } else {
                     showImage = true
                 }
-                var user = User(firstName: firstname, lastName: lastName, company: company, position: position, email: email, password: password, showImage: showImage, image: nil)
+                var user = User(firstName: firstname, lastName: lastName, company: company, position: position, email: email, password: password, showImage: showImage, image: image)
                 let dictionary = user.toDictionary()
                 do {
                     let data = try Util.toJson(dictionary: dictionary)

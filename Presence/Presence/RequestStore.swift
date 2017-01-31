@@ -31,6 +31,7 @@ internal final class RequestStore {
                 completion(Util.processResources(data: data, parse: Request.init))
             } else if let response = optionalResponse {
                 let error = Resource.http(response as! HTTPURLResponse)
+                
                 completion(ResourceResult.failure(error))
             } else {
                 completion(.failure(.system(optionalError!)))
@@ -47,25 +48,22 @@ internal final class RequestStore {
     
     //func postReactivateRequest()
     
-    func postCreateRequest(json: Data, completion: @escaping (ResourceResult<Any>) -> ()) {
+    func postCreateRequest(json: Data, completion: @escaping (ResourceResult<Void>) -> ()) {
         request.httpBody = json
         request.httpMethod = "POST"
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        let task = session.dataTask(with: request) {(optionData, optionalResponse, optionalError) in
-            if let response = optionalResponse {
-                if let _response = response as? HTTPURLResponse{
-                    if _response.statusCode == 200{
-                        completion(.success(true))
-                    } else {
+        let task = session.dataTask(with: request) {(optionalData, optionalResponse, optionalError) in
+            if let data = optionalData {
+                completion(Util.processBool(data: data))
+            } else if let response = optionalResponse {
                         let error = Resource.http(response as! HTTPURLResponse)
                         completion(ResourceResult.failure(error))
-                    }
+                
                 } else {
                     completion(.failure(.system(optionalError!)))
                 }
                 
             }
-        }
         task.resume()
     }
     

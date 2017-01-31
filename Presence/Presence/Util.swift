@@ -13,17 +13,17 @@ enum ResourceResult<A> {
     case sucess(Bool)
     case failure(Resource)
     
-    var innerType: Any? {
+    /*var innerType: Any? {
         switch self{
         case .success(let object):
-                return object
+            return object
         case .failure(let object):
             return object
         default:
             return nil
         }
-    }
-  
+    }*/
+    
 }
 
 enum Resource: Swift.Error{
@@ -38,7 +38,20 @@ struct Util {
         case invalidJSONData
     }
     
-    //universal processor
+    
+    
+    static func processBool(data: Data) -> ResourceResult<Void> {
+        if let dictionary = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String: Any],
+            let success = dictionary["success"] as? Bool,
+            success == true {
+            return .success(())
+        } else {
+            return .failure(.API(.invalidJSONData))
+        }
+        
+    }
+    
+    //universal processors
     static func processResources<A>(data: Data, parse: ([String: Any]) -> A?) -> ResourceResult<[A]> {
         if let dictionary = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [[String: Any]] {
             let objects = dictionary.flatMap(parse)
@@ -51,7 +64,7 @@ struct Util {
     static func processResource<A>(data: Data, parse: ([String: Any]) -> A?) -> ResourceResult<A> {
         if let dictionary = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String: Any],
             let object = parse(dictionary) {
-                return ResourceResult<A>.success(object)
+            return ResourceResult<A>.success(object)
             
         } else {
             return .failure(.API(.invalidJSONData))
@@ -83,7 +96,7 @@ struct Util {
         
         return dateFormatter!
     }
-
+    
 }
 
 extension Date {

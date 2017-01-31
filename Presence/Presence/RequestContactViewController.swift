@@ -28,18 +28,20 @@ class RequestContactViewController: UIViewController {
 
     
     @IBAction func requestButtonPressed(_ sender: UIButton) {
-        let  dictionary: [String: Any] = [:]
+        let  dictionary: [String: Any] = ["requesterEmail": user!.email,
+                                          "requesteeEmail": contact!.email]
         
         do{
             let data = try Util.toJson(dictionary: dictionary)
             RequestStore(endpoint: .createRequest).postCreateRequest(json: data, completion: { result in
                 switch result {
-                case .success:
+                case .success(()):
                     self.success = true
+                    print("Success")
                 case .failure( let resource):
                     print(resource)
                 default:
-                    print("unexpected data returned")
+                    print("didnot get data")
                 }
             })
         } catch {

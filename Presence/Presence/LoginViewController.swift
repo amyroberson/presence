@@ -71,10 +71,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         } else {
             failedLabel.isHidden = false
         }
-        let storyBoard = UIStoryboard(name: "Main", bundle: .main)
-        let tabVC = storyBoard.instantiateViewController(withIdentifier: "TabsMenu") as! TabsViewController
-        tabVC.user = user
-        self.show(tabVC, sender: nil)
         
     }
     @IBAction func registerButtonPressed(_ sender: UIButton) {

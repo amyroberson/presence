@@ -562,18 +562,40 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BYw-fr-r2Q">
                                 <rect key="frame" x="0.0" y="367" width="375" height="300"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.39105972420000001" green="0.90320271600000002" blue="0.45101789149999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="DTx-dn-PYW"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="AttendantCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="AttendantCell" id="fX8-rc-Y16">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="AttendantCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="AttendantCell" id="fX8-rc-Y16" customClass="AttendantCell" customModule="Presence" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fX8-rc-Y16" id="Wsm-OG-ez6">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="neh-Eb-dNo">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6Z-en-RGO">
+                                                    <rect key="frame" x="28" y="11.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="neh-Eb-dNo" secondAttribute="trailing" id="15s-vU-lJE"/>
+                                                <constraint firstItem="neh-Eb-dNo" firstAttribute="leading" secondItem="Wsm-OG-ez6" secondAttribute="leading" id="Eil-12-goo"/>
+                                                <constraint firstItem="r6Z-en-RGO" firstAttribute="leading" secondItem="Wsm-OG-ez6" secondAttribute="leadingMargin" constant="20" id="FEL-aU-QbM"/>
+                                                <constraint firstItem="r6Z-en-RGO" firstAttribute="centerY" secondItem="Wsm-OG-ez6" secondAttribute="centerY" id="Oq4-nu-ukV"/>
+                                                <constraint firstAttribute="bottom" secondItem="neh-Eb-dNo" secondAttribute="bottom" id="V3N-dK-pC5"/>
+                                                <constraint firstItem="neh-Eb-dNo" firstAttribute="top" secondItem="Wsm-OG-ez6" secondAttribute="top" id="isL-8E-AMh"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="userLabel" destination="r6Z-en-RGO" id="DzC-BN-a18"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

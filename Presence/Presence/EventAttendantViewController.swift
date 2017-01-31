@@ -41,8 +41,8 @@ class EventAttendantViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AttendantCell", for: indexPath)
-        cell.textLabel?.text = contacts[indexPath.row].fullName
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AttendantCell", for: indexPath) as! AttendantCell
+        cell.userLabel?.text = contacts[indexPath.row].fullName
         
         return cell
     }

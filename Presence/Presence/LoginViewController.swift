@@ -56,6 +56,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     case .success(let data):
                         if let _data = data as? User{
                             self.user = _data
+                            self.successfulLogin()
                         }
                     case .failure(let resource):
                         print(resource)
@@ -82,6 +83,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.show(registerVC, sender: nil)
     }
     
-    
+    func successfulLogin(){
+        
+            let storyBoard = UIStoryboard(name: "Main", bundle: .main)
+            let tabVC = storyBoard.instantiateViewController(withIdentifier: "TabsMenu") as! TabsViewController
+            tabVC.user = user
+            self.show(tabVC, sender: nil)
+            
+        
+    }
     
 }

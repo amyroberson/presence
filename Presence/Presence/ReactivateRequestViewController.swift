@@ -19,7 +19,7 @@ class ReactivateRequestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         userNameLabel.text = contact?.fullName
-        userImage.image = contact?.image
+        //userImage.image = contact?.image
     }
     
     @IBAction func reactivateButtonPressed(_ sender: UIButton) {

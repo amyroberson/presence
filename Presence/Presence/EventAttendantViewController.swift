@@ -29,6 +29,8 @@ class EventAttendantViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.separatorStyle = .none
+
         tableView.dataSource = self
         tableView.delegate = self
         tableView.reloadData()

@@ -45,7 +45,7 @@ class UserContactsViewController: UIViewController, UITableViewDataSource, UITab
         } catch {
             print("Json Error")
         }
-        
+        tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
         tableView.reloadData()

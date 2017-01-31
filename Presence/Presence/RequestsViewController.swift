@@ -37,7 +37,8 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
              print("toJson Error")
         }
         
-        
+        tableView.separatorStyle = .none
+
         tableView.dataSource = self
         tableView.delegate = self
         tableView.reloadData()

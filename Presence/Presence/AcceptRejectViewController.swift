@@ -20,14 +20,12 @@ class AcceptRejectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         userNameLabel.text = contact?.fullName
-        userImage.image = contact?.image
+        //userImage.image = contact?.image
 
     }
    
 
     @IBAction func acceptButtonTapped(_ sender: UIButton) {
-        //send post request
-        //let arrayCount: Int = Int((navigationController?.viewControllers.count)!)
         let arrayCount: Int = Int((navigationController?.viewControllers.count)!)
         if arrayCount >= 2 {
             let uiVC: UIViewController = (navigationController?.viewControllers[arrayCount - 2])!
@@ -35,7 +33,6 @@ class AcceptRejectViewController: UIViewController {
         }
     }
     @IBAction func rejectButtonTapped(_ sender: UIButton) {
-        //dismiss view
         
         let arrayCount: Int = Int((navigationController?.viewControllers.count)!)
         if arrayCount >= 2 {

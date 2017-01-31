@@ -32,7 +32,7 @@ class ProfileViewController: UIViewController {
         emailLabel.text = user?.email
         positionLabel.text = user?.position
         companyLabel.text = user?.company
-        imageOutlet.image = user?.image
+        //imageOutlet.image = user?.image
         if let _user = user {
             userNameLabel.text = "\(_user.firstName) \(_user.lastName)"
         }

@@ -9,58 +9,130 @@ EndPoints
 		"position" : string,
 		"email" : string,
 		"password" : string,
-		"pictureIsPrivate" : Bool
+		“showImage” : Bool,
+		“image” : String,
+		“id” : String
 		 ]
+	return the user object as confirmation
+
 
 	2-- .get_events.json
 	get Events list of events [[string: Any]] = [[Event Dictionary]]
-		[["name" : string,
+		[[“eventName" : string,
 		  "location": string,
-		  "time" : Date    //formate "MM-dd-yyyy hh:mm"
+		  "time" : Date,
+		  “address” : String,
+		 “guests” : [User],
+		 “id” : String
 		 ]]
 
 
 	3-- .check_in_event.json
-	Post check in
-		phone will send  event name & user firstname user email
-		[ "eventName" : String,
-		   "userFirstName" : String,
-		   "userEmail" : String
+	Post check in send
+		[ “eventId” : String,
+		   “guestEmail” : String
 		]
-
+	return eventDictionary
+		[[“eventName" : string,
+		  "location": string,
+		  "time" : Date,
+		  “address” : String,
+		“id”: String,
+		 “guests” : [User]
+		 ]]
 		
 
-	4-- .get_users_at_event.json
-	get users at event
-	phone will send
-		[ "eventName" : String]
-	server will send
-	["attendents" : [["firstName" : string,
-		  					"lastName" : string,
-		  					"company" : string,
-		  					"position" : string,
-		 					 "email" : string,
-		 					 "password" : string,
-		 								 "contacts" : [
-		  												["firstName" : string,
-															"email": string],
-					 								  ]
-		]]
-	]
-
-	5 .request_contact.json
+	4 .request_contact.json
 	request contact
 	phone will send
-		["requestingUser": ["userName": String,
-						  "userEmail" : String
-						  ],
-		"receivingUser": ["userName": String,
-						  "userEmail" : String
-						  ]
+		[“requesterEmail”: String,
+		"requesteeEmail”: String
 		 ]
 
+	return [“id” : String,
+		“toUser”: ["firstName" : string,
+			"lastName" : string,
+			"company" : string,
+			"position" : string,
+			"email" : string,
+			"password" : string,
+			“showImage” : Bool,
+			“image” : String
+		 	],
+		“fromUser”: ["firstName" : string,
+			"lastName" : string,
+			"company" : string,
+			"position" : string,
+			"email" : string,
+			"password" : string,
+			“showImage” : Bool,
+			“image” : String
+			 ],
+		“requestStatus”: String]
+
+	5. .login_user.json
+	send [“email”: String,
+		“password”: String]
+
+	return ["firstName" : string,
+		"lastName" : string,
+		"company" : string,
+		"position" : string,
+		"email" : string,
+		"password" : string,
+		“showImage” : Bool,
+		“image” : String
+		 ]
+	6. .get_contacts_forUser.json
+	send [“email”: string]
+
+	return [["firstName" : string,
+		"lastName" : string,
+		"company" : string,
+		"position" : string,
+		"email" : string,
+		"password" : string,
+		“showImage” : Bool,
+		“image” : String
+		 ]]
+	7.get_requests_for_user.json
+	send [“email”: string]
+	
+	return[[
+		“id” : String,
+		“toUser” :["firstName" : string,
+			"lastName" : string,
+			"company" : string,
+			"position" : string,
+			"email" : string,
+			"password" : string,
+			“showImage” : Bool,
+			“image” : String,
+			“id” : String
+			 ],
+		 “fromUser” : ["firstName" : string,
+			"lastName" : string,
+			"company" : string,
+			"position" : string,
+			"email" : string,
+			"password" : string,
+			“showImage” : Bool,
+			“image” : String, 
+			“id”:String
+			 ],
+		“requestStatus”: string
+		]] 
 
 
+	********Not Done*****
+	8. accept Request
+
+		
+		[“id”: String]
+
+	9. rejectRequest //delete request
+	return [“success” : Bool]
+	10. reactivate request
 
 
 

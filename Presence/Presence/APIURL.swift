@@ -12,11 +12,22 @@ struct APIURL {
     
     internal static let baseURL: URL = URL(string: "https://presence-app.herokuapp.com/")!
     
-    func fullURL(endPoint: EndPoint) -> URL{
-        return APIURL.baseURL.appendingPathComponent(endPoint.pathComponents)
+    // func fullURL(endPoint: EndPoint) -> URL{
+    //   return APIURL.baseURL.appendingPathComponent(endPoint.pathComponents)
+    //}
+    
+    func fullURL(endPoint: EndPoint) -> URL {
+        let urlWithComponents = APIURL.baseURL.appendingPathComponent(endPoint.pathComponents)
+        if let queryItems = endPoint.queryItems {
+            var urlComponents = URLComponents(url: urlWithComponents, resolvingAgainstBaseURL: true)!
+            urlComponents.queryItems = queryItems
+            return urlComponents.url!
+        } else {
+            return urlWithComponents
+        }
     }
     
-       
+    
     
     enum EndPoint{
         case addUser
@@ -26,7 +37,7 @@ struct APIURL {
         case login
         case createRequest
         case getContactsForUser
-        case getRequestsForUser
+        case getRequestsForUser(String)
         
         
         var pathComponents: String {
@@ -35,7 +46,7 @@ struct APIURL {
                 return "add_user.json"
             case .getEvents:
                 return "get_events.json"
-            case .getUser:
+            case .getUser: ///////////////
                 return "get_user.json"
             case .checkIn:
                 return "check_in_event.json"
@@ -47,6 +58,15 @@ struct APIURL {
                 return "get_contacts_for_user.json"
             case .getRequestsForUser:
                 return "get_all_requests.json?guestEmailAddress="
+            }
+        }
+        
+        var queryItems: [URLQueryItem]? {
+            switch self{
+            case .getRequestsForUser(let string):
+                return [URLQueryItem(name: "emailAddress", value: string)]
+            default:
+                return nil
             }
         }
     }

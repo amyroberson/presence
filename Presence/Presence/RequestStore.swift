@@ -13,31 +13,33 @@ internal final class RequestStore {
     fileprivate let session: URLSession = {
         return URLSession(configuration: .default)
     }()
-    var request: URLRequest
+    var request: URLRequest? = nil
     var endpoint:APIURL.EndPoint
     
     init(endpoint: APIURL.EndPoint){
-        request = URLRequest(url: APIURL().fullURL(endPoint: endpoint))
-        request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
         self.endpoint = endpoint
     }
     
     internal func fetchRequestsForUser(json: Data, completion: @escaping (ResourceResult<[Request]>) -> ()) {
-        request.httpMethod = "POST"
-        let task = session.dataTask(with: APIURL().fullURL(endPoint: endpoint)) {
-            (optionalData, optionalResponse, optionalError) in
-            
-            if let data = optionalData {
-                completion(Util.processResources(data: data, parse: Request.init))
-            } else if let response = optionalResponse {
-                let error = Resource.http(response as! HTTPURLResponse)
+        request = URLRequest(url: APIURL().fullURL(endPoint: endpoint))
+        if var request = request {
+            request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+            request.httpMethod = "GET"
+            let task = session.dataTask(with: APIURL().fullURL(endPoint: endpoint)) {
+                (optionalData, optionalResponse, optionalError) in
                 
-                completion(ResourceResult.failure(error))
-            } else {
-                completion(.failure(.system(optionalError!)))
+                if let data = optionalData {
+                    completion(Util.processResources(data: data, parse: Request.init))
+                } else if let response = optionalResponse {
+                    let error = Resource.http(response as! HTTPURLResponse)
+                    
+                    completion(ResourceResult.failure(error))
+                } else {
+                    completion(.failure(.system(optionalError!)))
+                }
             }
+            task.resume()
         }
-        task.resume()
     }
     
     
@@ -49,22 +51,25 @@ internal final class RequestStore {
     //func postReactivateRequest()
     
     func postCreateRequest(json: Data, completion: @escaping (ResourceResult<Void>) -> ()) {
-        request.httpBody = json
-        request.httpMethod = "POST"
-        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        let task = session.dataTask(with: request) {(optionalData, optionalResponse, optionalError) in
-            if let data = optionalData {
-                completion(Util.processBool(data: data))
-            } else if let response = optionalResponse {
-                        let error = Resource.http(response as! HTTPURLResponse)
-                        completion(ResourceResult.failure(error))
-                
+        request = URLRequest(url: APIURL().fullURL(endPoint: .createRequest))
+        if var request = request{
+            request.httpBody = json
+            request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+            request.httpMethod = "POST"
+            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            let task = session.dataTask(with: request) {(optionalData, optionalResponse, optionalError) in
+                if let data = optionalData {
+                    completion(Util.processBool(data: data))
+                } else if let response = optionalResponse {
+                    let error = Resource.http(response as! HTTPURLResponse)
+                    completion(ResourceResult.failure(error))
+                    
                 } else {
                     completion(.failure(.system(optionalError!)))
                 }
-                
             }
-        task.resume()
+            task.resume()
+        }
     }
     
 }

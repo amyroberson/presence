@@ -23,8 +23,7 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
         
         do{
             let data = try Util.toJson(dictionary: dictionary)
-            let requestStore = RequestStore(endpoint: .getRequestsForUser)
-            
+            let requestStore = RequestStore(endpoint: APIURL.EndPoint.getRequestsForUser((self.user?.email)!))
             requestStore.fetchRequestsForUser(json: data, completion: { result in
                 switch result{
                 case .success(let requests):
@@ -49,7 +48,7 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
         for request in getRequests{
             if request.toUser == user{
                 requests[0].append(request)
-            } else if request.isActive == false{
+            } else if request.requestStatus == "Inactive"{
                 requests[2].append(request)
             } else {
                 requests[1].append(request)
@@ -66,15 +65,15 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
         if indexPath.section == 0{
             let storyBoard = UIStoryboard(name: "Main", bundle: .main)
             let acceptRejectVC = storyBoard.instantiateViewController(withIdentifier: "AcceptReject") as! AcceptRejectViewController
-                        acceptRejectVC.contact = requests[indexPath.section][indexPath.row].fromUser
+                        //acceptRejectVC.contact = requests[indexPath.section][indexPath.row].fromUser
             acceptRejectVC.request = requests[indexPath.section][indexPath.row]
             self.show(acceptRejectVC, sender: nil)
             
         } else if indexPath.section == 2{
             let storyBoard = UIStoryboard(name: "Main", bundle: .main)
             let reactivateVC = storyBoard.instantiateViewController(withIdentifier: "Reactivate") as! ReactivateRequestViewController
-                reactivateVC.contact = requests[indexPath.section][indexPath.row].toUser
-                reactivateVC.request = requests[indexPath.section][indexPath.row]
+               // reactivateVC.contact = requests[indexPath.section][indexPath.row].toUser
+               // reactivateVC.request = requests[indexPath.section][indexPath.row]
             self.show(reactivateVC, sender: nil)
         }
     }
@@ -89,11 +88,11 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
         let request = self.requests[indexPath.section][indexPath.row]
         
         if indexPath.section == 0{
-            cell.userLabel?.text = request.fromUser.fullName
+        //    cell.userLabel?.text = request.fromUser.fullName
         } else if indexPath.section == 1{
-            cell.userLabel?.text = request.toUser.fullName
+          //  cell.userLabel?.text = request.toUser.fullName
         } else {
-            cell.userLabel?.text = request.toUser.fullName
+         //   cell.userLabel?.text = request.toUser.fullName
         }
         
         return cell

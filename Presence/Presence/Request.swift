@@ -12,23 +12,24 @@ import Foundation
 class Request {
     let toUser: User
     let fromUser: User
-    var isActive: Bool
+    var requestStatus: String
+    
     
     init?(data: [String: Any]){
         guard let toUser = data["toUser"] as? User,
             let fromUser = data["fromUser"] as? User,
-            let isActive = data["isActive"] as? Bool
+            let active = data["requestStatus"] as? String
             else {return nil}
         self.toUser = toUser
         self.fromUser = fromUser
-        self.isActive = isActive
+        self.requestStatus = active
     }
     
     func toDictionary() -> [String : Any]{
         let dictionary: [String : Any] = [
             "toUser": self.toUser.toDictionary(),
             "fromUser": self.fromUser.toDictionary(),
-            "isActive" : self.isActive
+            "requestStatus" : self.requestStatus
         ]
         return dictionary
     }
